@@ -1,0 +1,29 @@
+client_id,client_name,client_type,risk_profile,region,relationship_manager,aum_usd,onboarded_date,is_active,portfolio_id,portfolio_name,strategy,benchmark,base_currency,inception_date,nav_usd
+CLT-001,Lucia Todd,institutional,conservative,north_america,David Lim,49500000.00,2022-01-01,false,PRT-001,Todd Fixed Income,income,Bloomberg US Agg,USD,2022-03-01,28500000.00
+CLT-001,Lucia Todd,institutional,conservative,north_america,David Lim,49500000.00,2022-01-01,false,PRT-002,Todd Capital Preservation,capital_preservation,60/40 Blend,USD,2022-03-01,21000000.00
+CLT-002,Natalie Copeland,individual,moderate,north_america,Sarah Chen,168750000.00,2023-01-01,true,PRT-003,Copeland Balanced,balanced,60/40 Blend,USD,2023-03-01,168750000.00
+CLT-003,Michele Barrow,institutional,moderate,north_america,James Whitfield,214200000.00,2024-01-01,false,PRT-004,Barrow Core Equity,growth,S&P 500,USD,2024-03-01,128520000.00
+CLT-003,Michele Barrow,institutional,moderate,north_america,James Whitfield,214200000.00,2024-01-01,false,PRT-005,Barrow Fixed Income,income,Bloomberg US Agg,USD,2024-03-01,85680000.00
+CLT-004,Flora Webb,individual,aggressive,north_america,Helena Brandt,108000000.00,2015-01-01,true,PRT-006,Webb High Growth,growth,Russell 2000,USD,2015-03-01,108000000.00
+CLT-005,Angela Dees,individual,moderate,north_america,David Lim,59850000.00,2016-01-01,false,PRT-007,Dees Balanced,balanced,60/40 Blend,USD,2016-03-01,59850000.00
+CLT-006,Marilyn Washington,institutional,conservative,north_america,Sarah Chen,128700000.00,2017-01-01,true,PRT-008,Washington Income,income,Bloomberg US Agg,USD,2017-03-01,77220000.00
+CLT-006,Marilyn Washington,institutional,conservative,north_america,Sarah Chen,128700000.00,2017-01-01,true,PRT-009,Washington Capital Preservation,capital_preservation,60/40 Blend,USD,2017-03-01,51480000.00
+CLT-007,Dawn Rice,individual,moderate,north_america,James Whitfield,191250000.00,2018-01-01,true,PRT-010,Rice Balanced Growth,balanced,60/40 Blend,USD,2018-03-01,191250000.00
+CLT-008,Natasha Frost,individual,moderate,north_america,Helena Brandt,63000000.00,2019-01-01,true,PRT-011,Frost Moderate,balanced,60/40 Blend,USD,2019-03-01,63000000.00
+CLT-009,Lola Hamrick,family_office,aggressive,north_america,David Lim,93600000.00,2020-01-01,true,PRT-012,Hamrick Family Growth,growth,MSCI World,USD,2020-03-01,56160000.00
+CLT-009,Lola Hamrick,family_office,aggressive,north_america,David Lim,93600000.00,2020-01-01,true,PRT-013,Hamrick Alternatives,growth,HFRI Fund Wtd,USD,2020-03-01,37440000.00
+CLT-010,Alexander Chavez,individual,aggressive,north_america,Sarah Chen,119700000.00,2021-01-01,true,PRT-014,Chavez High Growth,growth,NASDAQ 100,USD,2021-03-01,119700000.00
+CLT-011,Carolyn Soule,individual,moderate,north_america,James Whitfield,158400000.00,2022-01-01,true,PRT-015,Soule Balanced,balanced,60/40 Blend,USD,2022-03-01,158400000.00
+CLT-012,Jon Winters,individual,aggressive,north_america,Helena Brandt,112500000.00,2023-01-01,false,PRT-016,Winters Growth,growth,S&P 500,USD,2023-03-01,112500000.00
+CLT-013,Jeffery Otto,individual,moderate,north_america,David Lim,25200000.00,2024-01-01,true,PRT-017,Otto Core Balanced,balanced,60/40 Blend,USD,2024-03-01,25200000.00
+CLT-014,Margaret Arnett,individual,aggressive,north_america,Sarah Chen,100800000.00,2015-01-01,true,PRT-018,Arnett Growth,growth,Russell 2000,USD,2015-03-01,100800000.00
+CLT-015,John Bradford,individual,moderate,north_america,James Whitfield,59850000.00,2016-01-01,false,PRT-019,Bradford Balanced,balanced,60/40 Blend,USD,2016-03-01,59850000.00
+CLT-016,Charlotte Jones,individual,moderate,north_america,Helena Brandt,138600000.00,2017-01-01,true,PRT-020,Jones Core,balanced,60/40 Blend,USD,2017-03-01,138600000.00
+CLT-017,Ruth Grimm,individual,moderate,north_america,David Lim,168750000.00,2018-01-01,true,PRT-021,Grimm Balanced,balanced,60/40 Blend,USD,2018-03-01,168750000.00
+CLT-018,David Forsyth,individual,moderate,north_america,Sarah Chen,126000000.00,2019-01-01,true,PRT-022,Forsyth Balanced,balanced,60/40 Blend,USD,2019-03-01,126000000.00
+CLT-019,Gary Trejo,individual,aggressive,north_america,James Whitfield,129600000.00,2020-01-01,false,PRT-023,Trejo Growth,growth,S&P 500,USD,2020-03-01,129600000.00
+CLT-020,Robert Rocha,family_office,conservative,north_america,Helena Brandt,128250000.00,2021-01-01,false,PRT-024,Rocha Capital Preservation,capital_preservation,60/40 Blend,USD,2021-03-01,76950000.00
+CLT-020,Robert Rocha,family_office,conservative,north_america,Helena Brandt,128250000.00,2021-01-01,false,PRT-025,Rocha Income,income,Bloomberg US Agg,USD,2021-03-01,51300000.00
+CLT-021,,individual,moderate,north_america,James Whitfield,44100000.00,2023-08-01,true,PRT-026,Hunter Balanced,balanced,60/40 Blend,USD,2023-10-01,44100000.00
+CLT-022,Bessie Hunter,individual,moderate,,Sarah Chen,72900000.00,2023-09-15,true,PRT-027,Hunter Income,income,Bloomberg US Agg,USD,2023-11-01,72900000.00
+CLT-023,Karen Ventura,individual,moderate,north_america,,81000000.00,2023-03-20,true,PRT-028,Ventura Balanced,balanced,60/40 Blend,USD,2023-05-01,81000000.00
