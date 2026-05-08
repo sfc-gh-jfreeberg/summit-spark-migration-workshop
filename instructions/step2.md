@@ -1,4 +1,4 @@
-# <h1black>Step 2: Get Sample code and Launch Cortex Code</h1blue>
+# <h1black>Section 2: Clone Sample code and Launch Cortex Code</h1blue>
 
 **Duration:** 20 minutes
 
@@ -108,14 +108,11 @@ Before moving to Step 3, confirm:
 
 ## <h1sub>Key Takeaways</h1sub>
 
-1. **Natural language → SQL** — Describe what you want; Cortex Code writes and runs the query
-2. **Conversational context** — Follow-up questions build on previous answers without repeating yourself
-3. **Auditable** — You can always ask to see the SQL that was generated
-4. **Skills extend capability** — Bundled skills give Cortex Code deep knowledge of specific Snowflake workflows
-5. **Sessions are disposable** — Use `/new-session` to start fresh without losing your Snowflake objects
+1. TODO
+2. TODO
 
 ---
 
 ## <h1sub>Next Steps</h1sub>
 
-Proceed to [Step 3: Hands-On with Cortex Code](step3.md) where you'll use a skill to build a Cortex Analyst semantic view from scratch.
+Proceed to [Step 3: Migrate Apache Spark code to Snowpark Connect](step3.md) where you'll use Cortex Code to edit the Apache Spark code to run on Snowpark Connect.
