@@ -1,4 +1,4 @@
-# summit-spark-migration-workshop
+# Snowflake Summit Spark Migration Workshop
 
 Hands-on lab materials for migrating a PySpark financial analytics pipeline to Snowflake-native Snowpark Python using the Snowflake Migration Accelerator (SMA) and Cortex Code.
 
