@@ -1,0 +1,8 @@
+entrypoint_name,test_type,test_method,status,error_message
+00_orchestrator.ipynb,source,test_validate_pipeline_runs,passed,
+01_data_ingestion_schema.ipynb,source,test_validate_pipeline_runs,passed,
+02_scd_patterns.ipynb,source,test_validate_pipeline_runs,passed,
+03_aggregations_pivot_windows.ipynb,source,test_validate_pipeline_runs,passed,
+04_functional_pipeline.ipynb,source,test_validate_pipeline_runs,passed,
+05_date_utilities_sql_interop.ipynb,source,test_validate_pipeline_runs,passed,
+03_aggregations_pivot_windows_scos.ipynb,source,test_validate_pipeline_runs,skipped,requires snowpark_connect (not available locally)

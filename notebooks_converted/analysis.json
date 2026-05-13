@@ -1,0 +1,452 @@
+[
+  {
+    "file": "./00_orchestrator.ipynb",
+    "code": "SPRKCNTPY1000",
+    "lines": "1",
+    "root_cause": "PySpark import detected \u2014 verify compatibility with Snowpark Connect",
+    "category": "Warning",
+    "fix": "Verify that imported PySpark module is supported in Snowpark Connect",
+    "final_risk": 0.4,
+    "snowpark_connect_category": "Import"
+  },
+  {
+    "file": "./00_orchestrator.ipynb",
+    "code": "SPRKCNTPY1000",
+    "lines": "2",
+    "root_cause": "PySpark import detected \u2014 verify compatibility with Snowpark Connect",
+    "category": "Warning",
+    "fix": "Verify that imported PySpark module is supported in Snowpark Connect",
+    "final_risk": 0.4,
+    "snowpark_connect_category": "Import"
+  },
+  {
+    "file": "./00_orchestrator.ipynb",
+    "code": "SPRKCNTPY1001",
+    "lines": "4",
+    "root_cause": "create_spark_session() replaced with snowpark_connect.init_spark_session()",
+    "category": "Warning",
+    "fix": "Verify session configuration options are set via snowpark_connect",
+    "final_risk": 0.3,
+    "snowpark_connect_category": "SparkSession"
+  },
+  {
+    "file": "./00_orchestrator.ipynb",
+    "code": "SPRKCNTPY4000",
+    "lines": "5",
+    "root_cause": "setLogLevel uses SparkContext which is not available in Snowpark Connect",
+    "category": "Conversion Error",
+    "fix": "Remove setLogLevel call \u2014 log level is managed by Snowflake platform",
+    "final_risk": 0.4,
+    "snowpark_connect_category": "SparkContext"
+  },
+  {
+    "file": "./00_orchestrator.ipynb",
+    "code": "SPRKCNTPY1000",
+    "lines": "2",
+    "root_cause": "PySpark import detected \u2014 verify compatibility with Snowpark Connect",
+    "category": "Warning",
+    "fix": "Verify that imported PySpark module is supported in Snowpark Connect",
+    "final_risk": 0.4,
+    "snowpark_connect_category": "Import"
+  },
+  {
+    "file": "./00_orchestrator.ipynb",
+    "code": "SPRKCNTPY1000",
+    "lines": "27",
+    "root_cause": "PySpark import detected \u2014 verify compatibility with Snowpark Connect",
+    "category": "Warning",
+    "fix": "Verify that imported PySpark module is supported in Snowpark Connect",
+    "final_risk": 0.4,
+    "snowpark_connect_category": "Import"
+  },
+  {
+    "file": "./00_orchestrator.ipynb",
+    "code": "SPRKCNTPY1000",
+    "lines": "1",
+    "root_cause": "spark.stop() removed \u2014 session lifecycle managed by Snowpark Connect",
+    "category": "Warning",
+    "fix": "Remove spark.stop() \u2014 SCOS manages session lifecycle",
+    "final_risk": 0.2,
+    "snowpark_connect_category": "SessionLifecycle"
+  },
+  {
+    "file": "./01_data_ingestion_schema.ipynb",
+    "code": "SPRKCNTPY1000",
+    "lines": "4",
+    "root_cause": "PySpark import detected \u2014 verify compatibility with Snowpark Connect",
+    "category": "Warning",
+    "fix": "Verify that imported PySpark module is supported in Snowpark Connect",
+    "final_risk": 0.4,
+    "snowpark_connect_category": "Import"
+  },
+  {
+    "file": "./01_data_ingestion_schema.ipynb",
+    "code": "SPRKCNTPY1000",
+    "lines": "5",
+    "root_cause": "PySpark import detected \u2014 verify compatibility with Snowpark Connect",
+    "category": "Warning",
+    "fix": "Verify that imported PySpark module is supported in Snowpark Connect",
+    "final_risk": 0.4,
+    "snowpark_connect_category": "Import"
+  },
+  {
+    "file": "./01_data_ingestion_schema.ipynb",
+    "code": "SPRKCNTPY1000",
+    "lines": "9",
+    "root_cause": "PySpark import detected \u2014 verify compatibility with Snowpark Connect",
+    "category": "Warning",
+    "fix": "Verify that imported PySpark module is supported in Snowpark Connect",
+    "final_risk": 0.4,
+    "snowpark_connect_category": "Import"
+  },
+  {
+    "file": "./01_data_ingestion_schema.ipynb",
+    "code": "SPRKCNTPY1000",
+    "lines": "14",
+    "root_cause": "PySpark import detected \u2014 verify compatibility with Snowpark Connect",
+    "category": "Warning",
+    "fix": "Verify that imported PySpark module is supported in Snowpark Connect",
+    "final_risk": 0.4,
+    "snowpark_connect_category": "Import"
+  },
+  {
+    "file": "./01_data_ingestion_schema.ipynb",
+    "code": "SPRKCNTPY1001",
+    "lines": "16",
+    "root_cause": "create_spark_session() replaced with snowpark_connect.init_spark_session()",
+    "category": "Warning",
+    "fix": "Verify session configuration options are set via snowpark_connect",
+    "final_risk": 0.3,
+    "snowpark_connect_category": "SparkSession"
+  },
+  {
+    "file": "./01_data_ingestion_schema.ipynb",
+    "code": "SPRKCNTPY4000",
+    "lines": "17",
+    "root_cause": "setLogLevel uses SparkContext which is not available in Snowpark Connect",
+    "category": "Conversion Error",
+    "fix": "Remove setLogLevel call \u2014 log level is managed by Snowflake platform",
+    "final_risk": 0.4,
+    "snowpark_connect_category": "SparkContext"
+  },
+  {
+    "file": "./01_data_ingestion_schema.ipynb",
+    "code": "SPRKCNTPY1000",
+    "lines": "18",
+    "root_cause": "PySpark import detected \u2014 verify compatibility with Snowpark Connect",
+    "category": "Warning",
+    "fix": "Verify that imported PySpark module is supported in Snowpark Connect",
+    "final_risk": 0.4,
+    "snowpark_connect_category": "Import"
+  },
+  {
+    "file": "./01_data_ingestion_schema.ipynb",
+    "code": "SPRKCNTPY1000",
+    "lines": "1",
+    "root_cause": "spark.stop() removed \u2014 session lifecycle managed by Snowpark Connect",
+    "category": "Warning",
+    "fix": "Remove spark.stop() \u2014 SCOS manages session lifecycle",
+    "final_risk": 0.2,
+    "snowpark_connect_category": "SessionLifecycle"
+  },
+  {
+    "file": "./02_scd_patterns.ipynb",
+    "code": "SPRKCNTPY1000",
+    "lines": "5",
+    "root_cause": "PySpark import detected \u2014 verify compatibility with Snowpark Connect",
+    "category": "Warning",
+    "fix": "Verify that imported PySpark module is supported in Snowpark Connect",
+    "final_risk": 0.4,
+    "snowpark_connect_category": "Import"
+  },
+  {
+    "file": "./02_scd_patterns.ipynb",
+    "code": "SPRKCNTPY1000",
+    "lines": "7",
+    "root_cause": "PySpark import detected \u2014 verify compatibility with Snowpark Connect",
+    "category": "Warning",
+    "fix": "Verify that imported PySpark module is supported in Snowpark Connect",
+    "final_risk": 0.4,
+    "snowpark_connect_category": "Import"
+  },
+  {
+    "file": "./02_scd_patterns.ipynb",
+    "code": "SPRKCNTPY1000",
+    "lines": "8",
+    "root_cause": "PySpark import detected \u2014 verify compatibility with Snowpark Connect",
+    "category": "Warning",
+    "fix": "Verify that imported PySpark module is supported in Snowpark Connect",
+    "final_risk": 0.4,
+    "snowpark_connect_category": "Import"
+  },
+  {
+    "file": "./02_scd_patterns.ipynb",
+    "code": "SPRKCNTPY1000",
+    "lines": "9",
+    "root_cause": "PySpark import detected \u2014 verify compatibility with Snowpark Connect",
+    "category": "Warning",
+    "fix": "Verify that imported PySpark module is supported in Snowpark Connect",
+    "final_risk": 0.4,
+    "snowpark_connect_category": "Import"
+  },
+  {
+    "file": "./02_scd_patterns.ipynb",
+    "code": "SPRKCNTPY1001",
+    "lines": "11",
+    "root_cause": "create_spark_session() replaced with snowpark_connect.init_spark_session()",
+    "category": "Warning",
+    "fix": "Verify session configuration options are set via snowpark_connect",
+    "final_risk": 0.3,
+    "snowpark_connect_category": "SparkSession"
+  },
+  {
+    "file": "./02_scd_patterns.ipynb",
+    "code": "SPRKCNTPY4000",
+    "lines": "12",
+    "root_cause": "setLogLevel uses SparkContext which is not available in Snowpark Connect",
+    "category": "Conversion Error",
+    "fix": "Remove setLogLevel call \u2014 log level is managed by Snowflake platform",
+    "final_risk": 0.4,
+    "snowpark_connect_category": "SparkContext"
+  },
+  {
+    "file": "./02_scd_patterns.ipynb",
+    "code": "SPRKCNTPY1000",
+    "lines": "1",
+    "root_cause": "spark.stop() removed \u2014 session lifecycle managed by Snowpark Connect",
+    "category": "Warning",
+    "fix": "Remove spark.stop() \u2014 SCOS manages session lifecycle",
+    "final_risk": 0.2,
+    "snowpark_connect_category": "SessionLifecycle"
+  },
+  {
+    "file": "./03_aggregations_pivot_windows.ipynb",
+    "code": "SPRKCNTPY1000",
+    "lines": "2",
+    "root_cause": "PySpark import detected \u2014 verify compatibility with Snowpark Connect",
+    "category": "Warning",
+    "fix": "Verify that imported PySpark module is supported in Snowpark Connect",
+    "final_risk": 0.4,
+    "snowpark_connect_category": "Import"
+  },
+  {
+    "file": "./03_aggregations_pivot_windows.ipynb",
+    "code": "SPRKCNTPY1001",
+    "lines": "4",
+    "root_cause": "create_spark_session() replaced with snowpark_connect.init_spark_session()",
+    "category": "Warning",
+    "fix": "Verify session configuration options are set via snowpark_connect",
+    "final_risk": 0.3,
+    "snowpark_connect_category": "SparkSession"
+  },
+  {
+    "file": "./03_aggregations_pivot_windows.ipynb",
+    "code": "SPRKCNTPY4000",
+    "lines": "5",
+    "root_cause": "setLogLevel uses SparkContext which is not available in Snowpark Connect",
+    "category": "Conversion Error",
+    "fix": "Remove setLogLevel call \u2014 log level is managed by Snowflake platform",
+    "final_risk": 0.4,
+    "snowpark_connect_category": "SparkContext"
+  },
+  {
+    "file": "./03_aggregations_pivot_windows.ipynb",
+    "code": "SPRKCNTPY1000",
+    "lines": "13",
+    "root_cause": "PySpark import detected \u2014 verify compatibility with Snowpark Connect",
+    "category": "Warning",
+    "fix": "Verify that imported PySpark module is supported in Snowpark Connect",
+    "final_risk": 0.4,
+    "snowpark_connect_category": "Import"
+  },
+  {
+    "file": "./03_aggregations_pivot_windows.ipynb",
+    "code": "SPRKCNTPY1000",
+    "lines": "14",
+    "root_cause": "PySpark import detected \u2014 verify compatibility with Snowpark Connect",
+    "category": "Warning",
+    "fix": "Verify that imported PySpark module is supported in Snowpark Connect",
+    "final_risk": 0.4,
+    "snowpark_connect_category": "Import"
+  },
+  {
+    "file": "./03_aggregations_pivot_windows.ipynb",
+    "code": "SPRKCNTPY1000",
+    "lines": "1",
+    "root_cause": "spark.stop() removed \u2014 session lifecycle managed by Snowpark Connect",
+    "category": "Warning",
+    "fix": "Remove spark.stop() \u2014 SCOS manages session lifecycle",
+    "final_risk": 0.2,
+    "snowpark_connect_category": "SessionLifecycle"
+  },
+  {
+    "file": "./03_aggregations_pivot_windows_scos.ipynb",
+    "code": "SPRKCNTPY1000",
+    "lines": "19",
+    "root_cause": "PySpark import detected \u2014 verify compatibility with Snowpark Connect",
+    "category": "Warning",
+    "fix": "Verify that imported PySpark module is supported in Snowpark Connect",
+    "final_risk": 0.4,
+    "snowpark_connect_category": "Import"
+  },
+  {
+    "file": "./03_aggregations_pivot_windows_scos.ipynb",
+    "code": "SPRKCNTPY1000",
+    "lines": "20",
+    "root_cause": "PySpark import detected \u2014 verify compatibility with Snowpark Connect",
+    "category": "Warning",
+    "fix": "Verify that imported PySpark module is supported in Snowpark Connect",
+    "final_risk": 0.4,
+    "snowpark_connect_category": "Import"
+  },
+  {
+    "file": "./04_functional_pipeline.ipynb",
+    "code": "SPRKCNTPY1000",
+    "lines": "2",
+    "root_cause": "PySpark import detected \u2014 verify compatibility with Snowpark Connect",
+    "category": "Warning",
+    "fix": "Verify that imported PySpark module is supported in Snowpark Connect",
+    "final_risk": 0.4,
+    "snowpark_connect_category": "Import"
+  },
+  {
+    "file": "./04_functional_pipeline.ipynb",
+    "code": "SPRKCNTPY1000",
+    "lines": "3",
+    "root_cause": "PySpark import detected \u2014 verify compatibility with Snowpark Connect",
+    "category": "Warning",
+    "fix": "Verify that imported PySpark module is supported in Snowpark Connect",
+    "final_risk": 0.4,
+    "snowpark_connect_category": "Import"
+  },
+  {
+    "file": "./04_functional_pipeline.ipynb",
+    "code": "SPRKCNTPY1000",
+    "lines": "4",
+    "root_cause": "PySpark import detected \u2014 verify compatibility with Snowpark Connect",
+    "category": "Warning",
+    "fix": "Verify that imported PySpark module is supported in Snowpark Connect",
+    "final_risk": 0.4,
+    "snowpark_connect_category": "Import"
+  },
+  {
+    "file": "./04_functional_pipeline.ipynb",
+    "code": "SPRKCNTPY1000",
+    "lines": "5",
+    "root_cause": "PySpark import detected \u2014 verify compatibility with Snowpark Connect",
+    "category": "Warning",
+    "fix": "Verify that imported PySpark module is supported in Snowpark Connect",
+    "final_risk": 0.4,
+    "snowpark_connect_category": "Import"
+  },
+  {
+    "file": "./04_functional_pipeline.ipynb",
+    "code": "SPRKCNTPY1001",
+    "lines": "7",
+    "root_cause": "create_spark_session() replaced with snowpark_connect.init_spark_session()",
+    "category": "Warning",
+    "fix": "Verify session configuration options are set via snowpark_connect",
+    "final_risk": 0.3,
+    "snowpark_connect_category": "SparkSession"
+  },
+  {
+    "file": "./04_functional_pipeline.ipynb",
+    "code": "SPRKCNTPY4000",
+    "lines": "8",
+    "root_cause": "setLogLevel uses SparkContext which is not available in Snowpark Connect",
+    "category": "Conversion Error",
+    "fix": "Remove setLogLevel call \u2014 log level is managed by Snowflake platform",
+    "final_risk": 0.4,
+    "snowpark_connect_category": "SparkContext"
+  },
+  {
+    "file": "./04_functional_pipeline.ipynb",
+    "code": "SPRKCNTPY1000",
+    "lines": "1",
+    "root_cause": "spark.stop() removed \u2014 session lifecycle managed by Snowpark Connect",
+    "category": "Warning",
+    "fix": "Remove spark.stop() \u2014 SCOS manages session lifecycle",
+    "final_risk": 0.2,
+    "snowpark_connect_category": "SessionLifecycle"
+  },
+  {
+    "file": "./05_date_utilities_sql_interop.ipynb",
+    "code": "SPRKCNTPY1000",
+    "lines": "5",
+    "root_cause": "PySpark import detected \u2014 verify compatibility with Snowpark Connect",
+    "category": "Warning",
+    "fix": "Verify that imported PySpark module is supported in Snowpark Connect",
+    "final_risk": 0.4,
+    "snowpark_connect_category": "Import"
+  },
+  {
+    "file": "./05_date_utilities_sql_interop.ipynb",
+    "code": "SPRKCNTPY1000",
+    "lines": "7",
+    "root_cause": "PySpark import detected \u2014 verify compatibility with Snowpark Connect",
+    "category": "Warning",
+    "fix": "Verify that imported PySpark module is supported in Snowpark Connect",
+    "final_risk": 0.4,
+    "snowpark_connect_category": "Import"
+  },
+  {
+    "file": "./05_date_utilities_sql_interop.ipynb",
+    "code": "SPRKCNTPY1000",
+    "lines": "8",
+    "root_cause": "PySpark import detected \u2014 verify compatibility with Snowpark Connect",
+    "category": "Warning",
+    "fix": "Verify that imported PySpark module is supported in Snowpark Connect",
+    "final_risk": 0.4,
+    "snowpark_connect_category": "Import"
+  },
+  {
+    "file": "./05_date_utilities_sql_interop.ipynb",
+    "code": "SPRKCNTPY1000",
+    "lines": "9",
+    "root_cause": "PySpark import detected \u2014 verify compatibility with Snowpark Connect",
+    "category": "Warning",
+    "fix": "Verify that imported PySpark module is supported in Snowpark Connect",
+    "final_risk": 0.4,
+    "snowpark_connect_category": "Import"
+  },
+  {
+    "file": "./05_date_utilities_sql_interop.ipynb",
+    "code": "SPRKCNTPY1000",
+    "lines": "10",
+    "root_cause": "PySpark import detected \u2014 verify compatibility with Snowpark Connect",
+    "category": "Warning",
+    "fix": "Verify that imported PySpark module is supported in Snowpark Connect",
+    "final_risk": 0.4,
+    "snowpark_connect_category": "Import"
+  },
+  {
+    "file": "./05_date_utilities_sql_interop.ipynb",
+    "code": "SPRKCNTPY1001",
+    "lines": "12",
+    "root_cause": "create_spark_session() replaced with snowpark_connect.init_spark_session()",
+    "category": "Warning",
+    "fix": "Verify session configuration options are set via snowpark_connect",
+    "final_risk": 0.3,
+    "snowpark_connect_category": "SparkSession"
+  },
+  {
+    "file": "./05_date_utilities_sql_interop.ipynb",
+    "code": "SPRKCNTPY4000",
+    "lines": "13",
+    "root_cause": "setLogLevel uses SparkContext which is not available in Snowpark Connect",
+    "category": "Conversion Error",
+    "fix": "Remove setLogLevel call \u2014 log level is managed by Snowflake platform",
+    "final_risk": 0.4,
+    "snowpark_connect_category": "SparkContext"
+  },
+  {
+    "file": "./05_date_utilities_sql_interop.ipynb",
+    "code": "SPRKCNTPY1000",
+    "lines": "1",
+    "root_cause": "spark.stop() removed \u2014 session lifecycle managed by Snowpark Connect",
+    "category": "Warning",
+    "fix": "Remove spark.stop() \u2014 SCOS manages session lifecycle",
+    "final_risk": 0.2,
+    "snowpark_connect_category": "SessionLifecycle"
+  }
+]

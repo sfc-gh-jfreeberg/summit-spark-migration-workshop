@@ -1,0 +1,513 @@
+{
+  "migration_id": "test_workload",
+  "generated_at": "2026-04-28 18:21:04.588972",
+  "source_asg": "",
+  "source_asg_agnostic": null,
+  "anomalies": [
+    {
+      "group_id": "GRP_LIN_001_rn",
+      "code": "LIN_001",
+      "severity": "CRITICAL",
+      "subject": "rn",
+      "subject_type": "node",
+      "issue_description": "Transformation has no source_id - lineage is broken.",
+      "ai_instruction": "Node 'tx_010' has no source. Check if variable was renamed or assigned from function call.",
+      "suggested_fix": null,
+      "occurrences": [
+        {
+          "node_id": "tx_010",
+          "node_type": "transformation",
+          "spark_snippet": "data['fx_rates'].withColumn('rn', F.row_number().over(latest_fx_window)).filter(F.col('rn') == 1).drop('rn').orderBy('base_ccy')",
+          "source_file": "00_orchestrator.ipynb.py",
+          "source_line": 313
+        },
+        {
+          "node_id": "tx_011",
+          "node_type": "transformation",
+          "spark_snippet": "data['fx_rates'].withColumn('rn', F.row_number().over(latest_fx_window)).filter(F.col('rn') == 1).drop('rn')",
+          "source_file": "00_orchestrator.ipynb.py",
+          "source_line": 313
+        },
+        {
+          "node_id": "tx_012",
+          "node_type": "transformation",
+          "spark_snippet": "data['fx_rates'].withColumn('rn', F.row_number().over(latest_fx_window)).filter(F.col('rn') == 1)",
+          "source_file": "00_orchestrator.ipynb.py",
+          "source_line": 313
+        }
+      ],
+      "context": null,
+      "resolved": false,
+      "resolution": null,
+      "resolved_at": null,
+      "resolved_by": null
+    },
+    {
+      "group_id": "GRP_LIN_001_quantity",
+      "code": "LIN_001",
+      "severity": "CRITICAL",
+      "subject": "quantity",
+      "subject_type": "node",
+      "issue_description": "Transformation has no source_id - lineage is broken.",
+      "ai_instruction": "Node 'tx_006' has no source. Check if variable was renamed or assigned from function call.",
+      "suggested_fix": null,
+      "occurrences": [
+        {
+          "node_id": "tx_006",
+          "node_type": "transformation",
+          "spark_snippet": "data['transactions'].groupBy('txn_type').agg(F.count('*').alias('trade_count'), F.round(F.sum(F.col('quantity') * F.col('price') * F.col('fx_rate_to_usd')), 2).alias('total_notional_usd')).orderBy('tx",
+          "source_file": "00_orchestrator.ipynb.py",
+          "source_line": 285
+        },
+        {
+          "node_id": "tx_007",
+          "node_type": "transformation",
+          "spark_snippet": "data['transactions'].groupBy('txn_type').agg(F.count('*').alias('trade_count'), F.round(F.sum(F.col('quantity') * F.col('price') * F.col('fx_rate_to_usd')), 2).alias('total_notional_usd'))",
+          "source_file": "00_orchestrator.ipynb.py",
+          "source_line": 285
+        }
+      ],
+      "context": null,
+      "resolved": false,
+      "resolution": null,
+      "resolved_at": null,
+      "resolved_by": null
+    },
+    {
+      "group_id": "GRP_LIN_001_tx_002",
+      "code": "LIN_001",
+      "severity": "CRITICAL",
+      "subject": "tx_002",
+      "subject_type": "node",
+      "issue_description": "Transformation has no source_id - lineage is broken.",
+      "ai_instruction": "Node 'tx_002' has no source. Check if variable was renamed or assigned from function call.",
+      "suggested_fix": null,
+      "occurrences": [
+        {
+          "node_id": "tx_002",
+          "node_type": "transformation",
+          "spark_snippet": "data['clients'].groupBy('client_type').agg(F.count('*').alias('clients'), F.round(F.sum('aum_usd') / 1000000.0, 1).alias('total_aum_m_usd')).orderBy('client_type')",
+          "source_file": "00_orchestrator.ipynb.py",
+          "source_line": 259
+        }
+      ],
+      "context": null,
+      "resolved": false,
+      "resolution": null,
+      "resolved_at": null,
+      "resolved_by": null
+    },
+    {
+      "group_id": "GRP_LIN_001_tx_003",
+      "code": "LIN_001",
+      "severity": "CRITICAL",
+      "subject": "tx_003",
+      "subject_type": "node",
+      "issue_description": "Transformation has no source_id - lineage is broken.",
+      "ai_instruction": "Node 'tx_003' has no source. Check if variable was renamed or assigned from function call.",
+      "suggested_fix": null,
+      "occurrences": [
+        {
+          "node_id": "tx_003",
+          "node_type": "transformation",
+          "spark_snippet": "data['clients'].groupBy('client_type').agg(F.count('*').alias('clients'), F.round(F.sum('aum_usd') / 1000000.0, 1).alias('total_aum_m_usd'))",
+          "source_file": "00_orchestrator.ipynb.py",
+          "source_line": 259
+        }
+      ],
+      "context": null,
+      "resolved": false,
+      "resolution": null,
+      "resolved_at": null,
+      "resolved_by": null
+    },
+    {
+      "group_id": "GRP_LIN_001_tx_004",
+      "code": "LIN_001",
+      "severity": "CRITICAL",
+      "subject": "tx_004",
+      "subject_type": "node",
+      "issue_description": "Transformation has no source_id - lineage is broken.",
+      "ai_instruction": "Node 'tx_004' has no source. Check if variable was renamed or assigned from function call.",
+      "suggested_fix": null,
+      "occurrences": [
+        {
+          "node_id": "tx_004",
+          "node_type": "transformation",
+          "spark_snippet": "data['portfolios'].groupBy('strategy').agg(F.count('*').alias('portfolios'), F.round(F.sum('nav_usd') / 1000000.0, 1).alias('total_nav_m_usd')).orderBy('strategy')",
+          "source_file": "00_orchestrator.ipynb.py",
+          "source_line": 270
+        }
+      ],
+      "context": null,
+      "resolved": false,
+      "resolution": null,
+      "resolved_at": null,
+      "resolved_by": null
+    },
+    {
+      "group_id": "GRP_LIN_001_tx_005",
+      "code": "LIN_001",
+      "severity": "CRITICAL",
+      "subject": "tx_005",
+      "subject_type": "node",
+      "issue_description": "Transformation has no source_id - lineage is broken.",
+      "ai_instruction": "Node 'tx_005' has no source. Check if variable was renamed or assigned from function call.",
+      "suggested_fix": null,
+      "occurrences": [
+        {
+          "node_id": "tx_005",
+          "node_type": "transformation",
+          "spark_snippet": "data['portfolios'].groupBy('strategy').agg(F.count('*').alias('portfolios'), F.round(F.sum('nav_usd') / 1000000.0, 1).alias('total_nav_m_usd'))",
+          "source_file": "00_orchestrator.ipynb.py",
+          "source_line": 270
+        }
+      ],
+      "context": null,
+      "resolved": false,
+      "resolution": null,
+      "resolved_at": null,
+      "resolved_by": null
+    },
+    {
+      "group_id": "GRP_LIN_001_tx_008",
+      "code": "LIN_001",
+      "severity": "CRITICAL",
+      "subject": "tx_008",
+      "subject_type": "node",
+      "issue_description": "Transformation has no source_id - lineage is broken.",
+      "ai_instruction": "Node 'tx_008' has no source. Check if variable was renamed or assigned from function call.",
+      "suggested_fix": null,
+      "occurrences": [
+        {
+          "node_id": "tx_008",
+          "node_type": "transformation",
+          "spark_snippet": "data['assets'].groupBy('asset_class').agg(F.count('*').alias('instruments'), F.collect_set('currency').alias('currencies')).orderBy('asset_class')",
+          "source_file": "00_orchestrator.ipynb.py",
+          "source_line": 299
+        }
+      ],
+      "context": null,
+      "resolved": false,
+      "resolution": null,
+      "resolved_at": null,
+      "resolved_by": null
+    },
+    {
+      "group_id": "GRP_LIN_001_tx_009",
+      "code": "LIN_001",
+      "severity": "CRITICAL",
+      "subject": "tx_009",
+      "subject_type": "node",
+      "issue_description": "Transformation has no source_id - lineage is broken.",
+      "ai_instruction": "Node 'tx_009' has no source. Check if variable was renamed or assigned from function call.",
+      "suggested_fix": null,
+      "occurrences": [
+        {
+          "node_id": "tx_009",
+          "node_type": "transformation",
+          "spark_snippet": "data['assets'].groupBy('asset_class').agg(F.count('*').alias('instruments'), F.collect_set('currency').alias('currencies'))",
+          "source_file": "00_orchestrator.ipynb.py",
+          "source_line": 299
+        }
+      ],
+      "context": null,
+      "resolved": false,
+      "resolution": null,
+      "resolved_at": null,
+      "resolved_by": null
+    },
+    {
+      "group_id": "GRP_LIN_001_tx_048",
+      "code": "LIN_001",
+      "severity": "CRITICAL",
+      "subject": "tx_048",
+      "subject_type": "node",
+      "issue_description": "Transformation has no source_id - lineage is broken.",
+      "ai_instruction": "Node 'tx_048' has no source. Check if variable was renamed or assigned from function call.",
+      "suggested_fix": null,
+      "occurrences": [
+        {
+          "node_id": "tx_048",
+          "node_type": "transformation",
+          "spark_snippet": "_sum(col(c).isNull().cast(IntegerType())).alias(c)",
+          "source_file": "01_data_ingestion_schema.ipynb.py",
+          "source_line": 228
+        }
+      ],
+      "context": null,
+      "resolved": false,
+      "resolution": null,
+      "resolved_at": null,
+      "resolved_by": null
+    },
+    {
+      "group_id": "GRP_LIN_001_tx_255",
+      "code": "LIN_001",
+      "severity": "CRITICAL",
+      "subject": "tx_255",
+      "subject_type": "node",
+      "issue_description": "Transformation has no source_id - lineage is broken.",
+      "ai_instruction": "Node 'tx_255' has no source. Check if variable was renamed or assigned from function call.",
+      "suggested_fix": null,
+      "occurrences": [
+        {
+          "node_id": "tx_255",
+          "node_type": "transformation",
+          "spark_snippet": "spark.sql(\"\\n            SELECT\\n                asset_id,\\n                price_date,\\n                DATE_FORMAT(price_date, 'yyyy-MM')                                AS month,\\n                cl",
+          "source_file": "05_date_utilities_sql_interop.ipynb.py",
+          "source_line": 326
+        }
+      ],
+      "context": null,
+      "resolved": false,
+      "resolution": null,
+      "resolved_at": null,
+      "resolved_by": null
+    },
+    {
+      "group_id": "GRP_LIN_001_tx_056",
+      "code": "LIN_001",
+      "severity": "MEDIUM",
+      "subject": "tx_056",
+      "subject_type": "node",
+      "issue_description": "Transformation has no source_id - lineage is broken.",
+      "ai_instruction": "Node 'tx_056' has no source. Check if variable was renamed or assigned from function call.",
+      "suggested_fix": null,
+      "occurrences": [
+        {
+          "node_id": "tx_056",
+          "node_type": "transformation",
+          "spark_snippet": "raw_assets_df.createOrReplaceTempView('stg_assets')",
+          "source_file": "01_data_ingestion_schema.ipynb.py",
+          "source_line": 267
+        }
+      ],
+      "context": null,
+      "resolved": false,
+      "resolution": null,
+      "resolved_at": null,
+      "resolved_by": null
+    },
+    {
+      "group_id": "GRP_LIN_001_tx_185",
+      "code": "LIN_001",
+      "severity": "MEDIUM",
+      "subject": "tx_185",
+      "subject_type": "node",
+      "issue_description": "Transformation has no source_id - lineage is broken.",
+      "ai_instruction": "Node 'tx_185' has no source. Check if variable was renamed or assigned from function call.",
+      "suggested_fix": null,
+      "occurrences": [
+        {
+          "node_id": "tx_185",
+          "node_type": "transformation",
+          "spark_snippet": "transactions_df.transform(with_notional_usd).select('txn_id', 'portfolio_id', 'asset_id', 'txn_type', 'quantity', 'price', 'currency', 'fx_rate_to_usd', 'notional_usd')",
+          "source_file": "04_functional_pipeline.ipynb.py",
+          "source_line": 77
+        }
+      ],
+      "context": null,
+      "resolved": false,
+      "resolution": null,
+      "resolved_at": null,
+      "resolved_by": null
+    },
+    {
+      "group_id": "GRP_LIN_001_tx_186",
+      "code": "LIN_001",
+      "severity": "MEDIUM",
+      "subject": "tx_186",
+      "subject_type": "node",
+      "issue_description": "Transformation has no source_id - lineage is broken.",
+      "ai_instruction": "Node 'tx_186' has no source. Check if variable was renamed or assigned from function call.",
+      "suggested_fix": null,
+      "occurrences": [
+        {
+          "node_id": "tx_186",
+          "node_type": "transformation",
+          "spark_snippet": "transactions_df.transform(with_notional_usd)",
+          "source_file": "04_functional_pipeline.ipynb.py",
+          "source_line": 77
+        }
+      ],
+      "context": null,
+      "resolved": false,
+      "resolution": null,
+      "resolved_at": null,
+      "resolved_by": null
+    },
+    {
+      "group_id": "GRP_LIN_001_tx_246",
+      "code": "LIN_001",
+      "severity": "MEDIUM",
+      "subject": "tx_246",
+      "subject_type": "node",
+      "issue_description": "Transformation has no source_id - lineage is broken.",
+      "ai_instruction": "Node 'tx_246' has no source. Check if variable was renamed or assigned from function call.",
+      "suggested_fix": null,
+      "occurrences": [
+        {
+          "node_id": "tx_246",
+          "node_type": "transformation",
+          "spark_snippet": "portfolios_df.createOrReplaceTempView('vw_portfolios')",
+          "source_file": "05_date_utilities_sql_interop.ipynb.py",
+          "source_line": 234
+        }
+      ],
+      "context": null,
+      "resolved": false,
+      "resolution": null,
+      "resolved_at": null,
+      "resolved_by": null
+    },
+    {
+      "group_id": "GRP_LIN_001_tx_248",
+      "code": "LIN_001",
+      "severity": "MEDIUM",
+      "subject": "tx_248",
+      "subject_type": "node",
+      "issue_description": "Transformation has no source_id - lineage is broken.",
+      "ai_instruction": "Node 'tx_248' has no source. Check if variable was renamed or assigned from function call.",
+      "suggested_fix": null,
+      "occurrences": [
+        {
+          "node_id": "tx_248",
+          "node_type": "transformation",
+          "spark_snippet": "fx_rates_df.createOrReplaceTempView('vw_fx_rates')",
+          "source_file": "05_date_utilities_sql_interop.ipynb.py",
+          "source_line": 236
+        }
+      ],
+      "context": null,
+      "resolved": false,
+      "resolution": null,
+      "resolved_at": null,
+      "resolved_by": null
+    },
+    {
+      "group_id": "GRP_LIN_002_in_249",
+      "code": "LIN_002",
+      "severity": "LOW",
+      "subject": "in_249",
+      "subject_type": "resource",
+      "issue_description": "Unknown anomaly type",
+      "ai_instruction": "Review and fix manually.",
+      "suggested_fix": null,
+      "occurrences": [
+        {
+          "node_id": "in_249",
+          "node_type": "source",
+          "spark_snippet": "spark.read.table('PTH_001')",
+          "source_file": "05_date_utilities_sql_interop.ipynb.py",
+          "source_line": 239
+        }
+      ],
+      "context": null,
+      "resolved": false,
+      "resolution": null,
+      "resolved_at": null,
+      "resolved_by": null
+    },
+    {
+      "group_id": "GRP_LIN_002_in_256",
+      "code": "LIN_002",
+      "severity": "LOW",
+      "subject": "in_256",
+      "subject_type": "resource",
+      "issue_description": "Unknown anomaly type",
+      "ai_instruction": "Review and fix manually.",
+      "suggested_fix": null,
+      "occurrences": [
+        {
+          "node_id": "in_256",
+          "node_type": "source",
+          "spark_snippet": "spark.read.table('vw_prices')",
+          "source_file": "05_date_utilities_sql_interop.ipynb.py",
+          "source_line": 326
+        }
+      ],
+      "context": null,
+      "resolved": false,
+      "resolution": null,
+      "resolved_at": null,
+      "resolved_by": null
+    },
+    {
+      "group_id": "GRP_LIN_002_in_263",
+      "code": "LIN_002",
+      "severity": "LOW",
+      "subject": "in_263",
+      "subject_type": "resource",
+      "issue_description": "Unknown anomaly type",
+      "ai_instruction": "Review and fix manually.",
+      "suggested_fix": null,
+      "occurrences": [
+        {
+          "node_id": "in_263",
+          "node_type": "source",
+          "spark_snippet": "spark.read.table('PTH_002')",
+          "source_file": "05_date_utilities_sql_interop.ipynb.py",
+          "source_line": 397
+        }
+      ],
+      "context": null,
+      "resolved": false,
+      "resolution": null,
+      "resolved_at": null,
+      "resolved_by": null
+    },
+    {
+      "group_id": "GRP_LIN_002_in_264",
+      "code": "LIN_002",
+      "severity": "LOW",
+      "subject": "in_264",
+      "subject_type": "resource",
+      "issue_description": "Unknown anomaly type",
+      "ai_instruction": "Review and fix manually.",
+      "suggested_fix": null,
+      "occurrences": [
+        {
+          "node_id": "in_264",
+          "node_type": "source",
+          "spark_snippet": "spark.read.table('PTH_003')",
+          "source_file": "05_date_utilities_sql_interop.ipynb.py",
+          "source_line": 413
+        }
+      ],
+      "context": null,
+      "resolved": false,
+      "resolution": null,
+      "resolved_at": null,
+      "resolved_by": null
+    }
+  ],
+  "summary": {
+    "total": 19,
+    "groups": 19,
+    "resolved": 0,
+    "unresolved": 19,
+    "by_severity": {
+      "CRITICAL": 10,
+      "MEDIUM": 5,
+      "LOW": 4,
+      "INFO": 0
+    },
+    "by_category": {
+      "SCH": 0,
+      "LIN": 19,
+      "LOG": 0,
+      "REF": 0,
+      "JOIN": 0,
+      "CTRL": 0,
+      "PAR": 0
+    },
+    "by_group": {
+      "LIN_001": 15,
+      "LIN_002": 4
+    },
+    "blocking_count": 10
+  },
+  "detector_version": "1.0.0",
+  "detection_config": {}
+}

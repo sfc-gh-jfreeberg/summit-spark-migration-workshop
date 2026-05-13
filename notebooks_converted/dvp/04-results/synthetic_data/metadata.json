@@ -1,0 +1,38 @@
+{
+  "reference_timestamp": "2026-04-28T14:41:40.747869",
+  "strategy": "join_aware",
+  "rows_per_table": 10,
+  "noise_rate": 0.0,
+  "noise_summary": {
+    "total_injections": 0,
+    "by_noise_type": {},
+    "by_table": {}
+  },
+  "verification_gaps": 0,
+  "z3_summary": {
+    "z3_available": false,
+    "dispatch_results": [],
+    "columns_with_templates": [],
+    "total_template_values": 0
+  },
+  "validation_summary": {
+    "validated": false
+  },
+  "tables": [
+    "PTH_001",
+    "PTH_002",
+    "PTH_003",
+    "df:raw_feed_df",
+    "df:result",
+    "df:source_df",
+    "df:summary_df",
+    "df:target_df",
+    "df:valuations_df",
+    "stg_portfolios",
+    "vw_enriched_trades",
+    "vw_monthly_returns_raw",
+    "vw_prices",
+    "vw_ranked_returns",
+    "vw_transactions"
+  ]
+}

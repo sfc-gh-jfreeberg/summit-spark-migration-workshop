@@ -1,0 +1,53 @@
+{
+  "generated_at": "2026-04-28T14:01:00.229227",
+  "workload_name": "Conversion-SCOS-04-28-2026T13 34",
+  "source_path": "/Users/bcarver/Documents/skill_testing_and_usage/test_workload_for_demo/notebooks_converted/Conversion-SCOS-04-28-2026T13 34",
+  "sqlite_path": "/Users/bcarver/Documents/skill_testing_and_usage/test_workload_for_demo/notebooks_converted/Conversion-SCOS-04-28-2026T13 34/sma_storage.sqlite3",
+  "conversion_type": "snowpark_connect",
+  "tool_info": {
+    "execution_id": "48d2dc7a-706e-4593-b511-5d9b6ba81c97",
+    "tool_version": "scos-migration-1.0.0"
+  },
+  "log_info": {
+    "project_name": "test_workload",
+    "owner_email": "Not detected",
+    "owner_company": "Not detected"
+  },
+  "modules": {
+    "overview": {
+      "enabled": true,
+      "has_data": true,
+      "label": "Overview",
+      "icon": "dashboard",
+      "data_path": "ewi-tracker"
+    },
+    "dependency_tracker": {
+      "enabled": true,
+      "has_data": false,
+      "label": "Dependency Tracker",
+      "icon": "link",
+      "data_path": "ewi-tracker"
+    },
+    "ewi_tracker": {
+      "enabled": true,
+      "has_data": true,
+      "label": "EWI Tracker",
+      "icon": "warning",
+      "data_path": "ewi-tracker"
+    },
+    "file_tracker": {
+      "enabled": true,
+      "has_data": true,
+      "label": "File Tracker",
+      "icon": "folder",
+      "data_path": "ewi-tracker"
+    },
+    "test_tracker": {
+      "enabled": true,
+      "has_data": false,
+      "label": "Test Tracker",
+      "icon": "test",
+      "data_path": "ewi-tracker"
+    }
+  }
+}

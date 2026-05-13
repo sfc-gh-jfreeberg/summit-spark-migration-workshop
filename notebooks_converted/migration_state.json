@@ -1,0 +1,95 @@
+{
+  "phase": 0,
+  "manifest": [
+    "./00_orchestrator.ipynb",
+    "./01_data_ingestion_schema.ipynb",
+    "./02_scd_patterns.ipynb",
+    "./03_aggregations_pivot_windows.ipynb",
+    "./03_aggregations_pivot_windows_scos.ipynb",
+    "./04_functional_pipeline.ipynb",
+    "./05_date_utilities_sql_interop.ipynb"
+  ],
+  "file_order": [
+    "./00_orchestrator.ipynb",
+    "./01_data_ingestion_schema.ipynb",
+    "./02_scd_patterns.ipynb",
+    "./03_aggregations_pivot_windows.ipynb",
+    "./03_aggregations_pivot_windows_scos.ipynb",
+    "./04_functional_pipeline.ipynb",
+    "./05_date_utilities_sql_interop.ipynb"
+  ],
+  "notebook_files": [
+    "./00_orchestrator.ipynb",
+    "./01_data_ingestion_schema.ipynb",
+    "./02_scd_patterns.ipynb",
+    "./03_aggregations_pivot_windows.ipynb",
+    "./03_aggregations_pivot_windows_scos.ipynb",
+    "./04_functional_pipeline.ipynb",
+    "./05_date_utilities_sql_interop.ipynb"
+  ],
+  "dbc_archives": [],
+  "conversion_root": "/Users/bcarver/Documents/skill_testing_and_usage/test_workload_for_demo/notebooks_converted/Conversion-SCOS-04-28-2026T13 34",
+  "migrated_dir": "/Users/bcarver/Documents/skill_testing_and_usage/test_workload_for_demo/notebooks_converted/Conversion-SCOS-04-28-2026T13 34/Output/",
+  "skill_directory": "/Users/bcarver/Documents/repos and skills/cortex-code-skills-main/data-engineering/spark-migration/snowpark-connect",
+  "coordinator_mode": false,
+  "dispatch_threshold": 100,
+  "context_budget_tokens": 80000,
+  "chunk_size": 20,
+  "chunks": [],
+  "processed_files": [
+    "./00_orchestrator.ipynb",
+    "./01_data_ingestion_schema.ipynb",
+    "./02_scd_patterns.ipynb",
+    "./03_aggregations_pivot_windows.ipynb",
+    "./03_aggregations_pivot_windows_scos.ipynb",
+    "./04_functional_pipeline.ipynb",
+    "./05_date_utilities_sql_interop.ipynb"
+  ],
+  "pending_files": [],
+  "phases_completed": {
+    "1_analysis": {
+      "status": "complete",
+      "files_analyzed": 0,
+      "note": "No .py files in workload; notebooks processed inline as coordinator_mode=false"
+    },
+    "2_fixes": {
+      "status": "complete",
+      "files_done": [
+        "./00_orchestrator.ipynb",
+        "./01_data_ingestion_schema.ipynb",
+        "./02_scd_patterns.ipynb",
+        "./03_aggregations_pivot_windows.ipynb",
+        "./03_aggregations_pivot_windows_scos.ipynb",
+        "./04_functional_pipeline.ipynb",
+        "./05_date_utilities_sql_interop.ipynb"
+      ]
+    }
+  },
+  "metadata": {
+    "email": "",
+    "company": "",
+    "project": "test_workload"
+  },
+  "phase2_chunks": [
+    [
+      "./00_orchestrator.ipynb",
+      "./01_data_ingestion_schema.ipynb",
+      "./02_scd_patterns.ipynb",
+      "./03_aggregations_pivot_windows.ipynb",
+      "./03_aggregations_pivot_windows_scos.ipynb",
+      "./04_functional_pipeline.ipynb",
+      "./05_date_utilities_sql_interop.ipynb"
+    ]
+  ],
+  "fallback_processed": [
+    "./00_orchestrator.ipynb",
+    "./01_data_ingestion_schema.ipynb",
+    "./02_scd_patterns.ipynb",
+    "./03_aggregations_pivot_windows.ipynb",
+    "./03_aggregations_pivot_windows_scos.ipynb",
+    "./04_functional_pipeline.ipynb",
+    "./05_date_utilities_sql_interop.ipynb"
+  ],
+  "fallback_count": 7,
+  "orchestrator_coverage_verified": true
+}

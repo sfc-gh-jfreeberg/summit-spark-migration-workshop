@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Snowflake Migration Readiness Report</title>
+<style>
+:root {
+  --sf-blue: #29b5e8;
+  --sf-dark-blue: #1a73a7;
+  --sf-navy: #0f2b46;
+  --sf-light: #f4f9fc;
+  --green: #2ecc71;
+  --yellow: #f39c12;
+  --red: #e74c3c;
+  --gray: #6c757d;
+  --border: #e2e8f0;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--sf-light); color: #333; line-height: 1.6; }
+.header { background: var(--sf-navy); color: white; padding: 1.5rem 2rem; display: flex; align-items: center; gap: 1rem; }
+.header h1 { font-size: 1.5rem; font-weight: 600; }
+.header .subtitle { color: var(--sf-blue); font-size: 0.9rem; }
+.tabs { background: white; border-bottom: 2px solid var(--border); display: flex; padding: 0 2rem; }
+.tab { padding: 1rem 1.5rem; cursor: pointer; border-bottom: 3px solid transparent; font-weight: 500; color: var(--gray); transition: all 0.2s; }
+.tab:hover { color: var(--sf-dark-blue); }
+.tab.active { color: var(--sf-dark-blue); border-bottom-color: var(--sf-blue); }
+.page { display: none; padding: 2rem; max-width: 1400px; margin: 0 auto; }
+.page.active { display: block; }
+.tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
+.tile { background: white; border-radius: 8px; padding: 1.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+.tile .label { font-size: 0.8rem; text-transform: uppercase; color: var(--gray); letter-spacing: 0.5px; }
+.tile .value { font-size: 2rem; font-weight: 700; color: var(--sf-navy); margin-top: 0.25rem; }
+.tile .value.green { color: var(--green); }
+.tile .value.yellow { color: var(--yellow); }
+.tile .value.red { color: var(--red); }
+.section { background: white; border-radius: 8px; padding: 1.5rem; margin-bottom: 1.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+.section h2 { font-size: 1.2rem; color: var(--sf-navy); margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border); }
+.section h3 { font-size: 1rem; color: var(--sf-dark-blue); margin: 1rem 0 0.5rem; }
+table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+th { background: var(--sf-light); text-align: left; padding: 0.75rem; font-weight: 600; color: var(--sf-navy); border-bottom: 2px solid var(--border); }
+td { padding: 0.75rem; border-bottom: 1px solid var(--border); }
+tr:hover { background: #f8fafc; }
+.badge { display: inline-block; padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.75rem; font-weight: 600; }
+.badge-green { background: #d4edda; color: #155724; }
+.badge-yellow { background: #fff3cd; color: #856404; }
+.badge-red { background: #f8d7da; color: #721c24; }
+.recommendations { list-style: none; }
+.recommendations li { padding: 0.75rem; margin-bottom: 0.5rem; background: var(--sf-light); border-left: 4px solid var(--sf-blue); border-radius: 0 4px 4px 0; }
+.wave { border: 1px solid var(--border); border-radius: 8px; margin-bottom: 1rem; overflow: hidden; }
+.wave-header { background: var(--sf-light); padding: 1rem 1.5rem; display: flex; justify-content: space-between; align-items: center; cursor: pointer; }
+.wave-header h3 { color: var(--sf-navy); font-size: 1rem; }
+.wave-body { padding: 1rem 1.5rem; display: none; }
+.wave.open .wave-body { display: block; }
+.wave-meta { font-size: 0.85rem; color: var(--gray); }
+.progress-bar { height: 8px; background: #e9ecef; border-radius: 4px; overflow: hidden; margin-top: 0.5rem; }
+.progress-fill { height: 100%; border-radius: 4px; transition: width 0.3s; }
+.progress-fill.green { background: var(--green); }
+.progress-fill.yellow { background: var(--yellow); }
+.progress-fill.red { background: var(--red); }
+.collapsible-header { cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+.collapsible-header::after { content: '▼'; font-size: 0.7rem; color: var(--gray); transition: transform 0.2s; }
+.collapsed .collapsible-header::after { transform: rotate(-90deg); }
+.collapsible-body { overflow: hidden; }
+.collapsed .collapsible-body { display: none; }
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+@media (max-width: 768px) { .two-col { grid-template-columns: 1fr; } .tiles { grid-template-columns: 1fr 1fr; } }
+.file-list { max-height: 300px; overflow-y: auto; font-size: 0.85rem; }
+.file-list .file-item { padding: 0.4rem 0.6rem; border-bottom: 1px solid #f0f0f0; display: flex; justify-content: space-between; }
+.tag { display: inline-block; padding: 0.15rem 0.4rem; border-radius: 3px; font-size: 0.7rem; margin-left: 0.3rem; background: #e9ecef; }
+.generated-at { text-align: center; padding: 1rem; color: var(--gray); font-size: 0.8rem; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div>
+    <h1>&#10052; Snowflake Migration Readiness Report</h1>
+    <div class="subtitle">Generated: 2026-05-11 23:37:34 | Mode: CODEBASE</div>
+  </div>
+</div>
+<div class="tabs">
+  <div class="tab active" data-page="overview">Overview</div>
+  <div class="tab" data-page="discovery">Additional Discovery</div>
+  <div class="tab" data-page="api-compat">API Compatibility</div>
+  <div class="tab" data-page="detailed">Detailed Compatibility</div>
+  <div class="tab" data-page="migration-plan">Migration Plan</div>
+</div>
+
+<!-- PAGE 1: OVERVIEW -->
+<div id="overview" class="page active">
+  <div class="tiles">
+    <div class="tile">
+      <div class="label">Files Scanned</div>
+      <div class="value">18</div>
+    </div>
+    <div class="tile">
+      <div class="label">Lines of Code</div>
+      <div class="value">1,815</div>
+    </div>
+    <div class="tile">
+      <div class="label">File Dependencies</div>
+      <div class="value">0</div>
+    </div>
+    <div class="tile">
+      <div class="label">Library Imports</div>
+      <div class="value">13</div>
+    </div>
+    <div class="tile">
+      <div class="label">Readiness Score</div>
+      <div class="value green">100%</div>
+    </div>
+    <div class="tile">
+      <div class="label">Changes Needed</div>
+      <div class="value green">0</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <p style="font-size:0.95rem;line-height:1.7;">This is a <strong>Python-based</strong> workload built around <strong>data pipelines and ETL processing</strong> comprising 1,815 lines of code across 6 code files. It makes heavy use of the Apache Spark API (266 references detected), with an overall Snowflake readiness score of <strong>100%</strong>. For Snowflake, this workload is best suited for <strong>Snowpark for Python</strong> or <strong>Snowpark Connect (SCOS)</strong> for minimal-change migration. The pipeline orchestration can be managed with <strong>Snowflake Tasks</strong> or an external scheduler, while the data processing stages map naturally to Snowpark stored procedures or Dynamic Tables.</p>
+  </div>
+
+  <div class="two-col">
+    <div class="section">
+      <h2>File Type Summary</h2>
+      <p style="margin-bottom:1rem;color:var(--gray);font-size:0.9rem;">What types of files are in this codebase and what that tells us.</p>
+      <table>
+        <thead><tr><th>Extension</th><th>Count</th><th>Lines</th><th>Significance</th></tr></thead>
+        <tbody><tr><td><code>.ipynb</code></td><td>8</td><td>0</td><td>Supporting file</td></tr>
+<tr><td><code>.py</code></td><td>6</td><td>1,815</td><td>Python code — potential PySpark or standalone scripts</td></tr>
+<tr><td><code>.csv</code></td><td>3</td><td>0</td><td>Data files or test fixtures</td></tr>
+<tr><td><code>.md</code></td><td>1</td><td>0</td><td>Documentation</td></tr></tbody>
+      </table>
+    </div>
+    <div class="section">
+      <h2>Data Sources</h2>
+      <p style="margin-bottom:1rem;color:var(--gray);font-size:0.9rem;">References to reading from and writing to data sources.</p>
+      <div class="tiles" style="grid-template-columns:1fr 1fr;margin-bottom:1rem;">
+        <div class="tile"><div class="label">Read Operations</div><div class="value">6</div></div>
+        <div class="tile"><div class="label">Write Operations</div><div class="value">3</div></div>
+      </div>
+      <table>
+        <thead><tr><th>Format</th><th>Reads</th><th>Writes</th><th>Supported</th></tr></thead>
+        <tbody><tr><td>Csv</td><td>2</td><td>0</td><td><span class="badge badge-green">Yes</span></td></tr></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Complex Patterns</h2>
+    <p style="margin-bottom:1rem;color:var(--gray);font-size:0.9rem;">Patterns that require special attention during migration.</p>
+    <table>
+      <thead><tr><th>Pattern</th><th>Occurrences</th><th>Impact</th><th>Files Affected</th></tr></thead>
+      <tbody><tr><td colspan='4'>No complex patterns detected</td></tr></tbody>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>Compatibility Summary</h2>
+    <div class="progress-bar" style="height:12px;margin-bottom:1rem;">
+      <div class="progress-fill green" style="width:100.0%"></div>
+    </div>
+    <div class="two-col">
+      <div>
+        <h3>Already Compatible</h3>
+        <p style="font-size:0.9rem;color:var(--gray);">6 of 6 code files are already highly compatible with Snowflake (100%).</p>
+      </div>
+      <div>
+        <h3>Breakdown by Status</h3>
+        <table>
+          <tbody><tr><td>Supported</td><td>266</td></tr>
+<tr><td>NotSupported</td><td>0</td></tr></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Recommendations</h2>
+    <ul class="recommendations"><li>Data write operations using file-based outputs (Parquet, CSV) should be converted to writing directly to Snowflake tables.</li>
+<li>Set up a Snowflake development environment early and run integration tests for each migrated component.</li></ul>
+  </div>
+
+  <div class="section">
+    <h2>Migration Approach (Summary)</h2>
+    <p style="margin-bottom:1rem;color:var(--gray);font-size:0.9rem;">A high-level plan for approaching this migration.</p>
+    <div style="display:grid;gap:0.75rem;"><div style="padding:1rem;background:#d4edda;border-radius:6px;">
+        <strong>Stage 1: Foundation & Quick Wins</strong><br>
+        <span style="font-size:0.9rem;">Migrate 6 highly-compatible files first. Set up Snowpark sessions, convert simple DataFrame operations. Build confidence and establish patterns.</span>
+    </div><div style="padding:1rem;background:#fff3cd;border-radius:6px;">
+        <strong>Stage 2: Core Transformation</strong><br>
+        <span style="font-size:0.9rem;">Migrate 0 medium-complexity files. Handle Spark API renames, helper conversions, and supported transformations.</span>
+    </div><div style="padding:1rem;background:#f8d7da;border-radius:6px;">
+        <strong>Stage 3: Complex Refactoring</strong><br>
+        <span style="font-size:0.9rem;">Tackle 0 complex files requiring significant rework (RDD replacement, streaming redesign, ML migration).</span>
+    </div><div style="padding:1rem;background:#e2e8f0;border-radius:6px;">
+        <strong>Stage 4: Validation & Cutover</strong><br>
+        <span style="font-size:0.9rem;">End-to-end testing, data validation, performance benchmarking, and production cutover.</span>
+    </div></div>
+  </div>
+</div>
+
+<!-- PAGE 2: DETAILED COMPATIBILITY -->
+<div id="detailed" class="page">
+  <div class="section">
+    <h2>Readiness Scores</h2>
+    <table>
+      <thead><tr><th>Score</th><th>Value</th><th>Status</th><th>Description</th></tr></thead>
+      <tbody><tr><td>Overall Readiness</td><td><strong>100%</strong></td><td><span class="badge badge-green">Green</span></td><td>Percentage of Spark API usages convertible to Snowpark</td></tr>
+<tr><td>Python Readiness</td><td><strong>100%</strong></td><td><span class="badge badge-green">Green</span></td><td>Readiness of Python source files</td></tr>
+<tr><td>Third-Party Libraries</td><td><strong>100%</strong></td><td><span class="badge badge-green">Green</span></td><td>Percentage of imported libraries available in Snowflake</td></tr></tbody>
+    </table>
+  </div>
+
+  
+
+  <div class="section">
+    <h2>File Summary</h2>
+    <div class="two-col">
+      <div>
+        <h3>By File Type</h3>
+        <table>
+          <thead><tr><th>Type</th><th>Files</th><th>Lines</th><th>%</th></tr></thead>
+          <tbody><tr><td>.ipynb</td><td>8</td><td>0</td><td>0.0%</td></tr>
+<tr><td>.py</td><td>6</td><td>1,815</td><td>100.0%</td></tr>
+<tr><td>.csv</td><td>3</td><td>0</td><td>0.0%</td></tr>
+<tr><td>.md</td><td>1</td><td>0</td><td>0.0%</td></tr></tbody>
+        </table>
+      </div>
+      <div>
+        <h3>By Technology</h3>
+        <table>
+          <thead><tr><th>Technology</th><th>File Count</th></tr></thead>
+          <tbody><tr><td>Other</td><td>12</td></tr>
+<tr><td>Python</td><td>6</td></tr></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Spark API Summary</h2>
+    <div class="two-col">
+      <div>
+        <h3>By Category</h3>
+        <table>
+          <thead><tr><th>Category</th><th>Supported</th><th>Unsupported</th><th>Readiness</th></tr></thead>
+          <tbody><tr><td>DataFrame</td><td>0</td><td>0</td><td>N/A</td></tr></tbody>
+        </table>
+      </div>
+      <div>
+        <h3>By Conversion Status</h3>
+        <table>
+          <thead><tr><th>Status</th><th>Count</th><th>%</th></tr></thead>
+          <tbody><tr><td>Supported</td><td>266</td><td>100.0%</td></tr>
+<tr><td>NotSupported</td><td>0</td><td>0.0%</td></tr></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Third-Party Library Summary</h2>
+    <table>
+      <thead><tr><th>Library</th><th>Import Count</th><th>Snowpark Supported</th></tr></thead>
+      <tbody><tr><td><code>pyspark.sql</code></td><td>7</td><td><span class="badge badge-green">Yes</span></td></tr>
+<tr><td><code>pyspark.sql.types</code></td><td>6</td><td><span class="badge badge-green">Yes</span></td></tr>
+<tr><td><code>pyspark.sql.functions</code></td><td>3</td><td><span class="badge badge-green">Yes</span></td></tr>
+<tr><td><code>datetime</code></td><td>2</td><td><span class="badge badge-green">Yes</span></td></tr>
+<tr><td><code>functools</code></td><td>2</td><td><span class="badge badge-green">Yes</span></td></tr>
+<tr><td><code>sys</code></td><td>1</td><td><span class="badge badge-green">Yes</span></td></tr>
+<tr><td><code>demo_data</code></td><td>1</td><td><span class="badge badge-green">Yes</span></td></tr>
+<tr><td><code>logging</code></td><td>1</td><td><span class="badge badge-green">Yes</span></td></tr>
+<tr><td><code>pyspark.sql.functions as F</code></td><td>1</td><td><span class="badge badge-green">Yes</span></td></tr>
+<tr><td><code>pyspark.sql.window</code></td><td>1</td><td><span class="badge badge-green">Yes</span></td></tr>
+<tr><td><code>re</code></td><td>1</td><td><span class="badge badge-green">Yes</span></td></tr>
+<tr><td><code>pandas as pd</code></td><td>1</td><td><span class="badge badge-green">Yes</span></td></tr>
+<tr><td><code>os</code></td><td>1</td><td><span class="badge badge-green">Yes</span></td></tr></tbody>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>Migration Categories</h2>
+    <p style="margin-bottom:1rem;color:var(--gray);font-size:0.9rem;">Changes required by category, ordered by impact. Each category represents a class of code patterns that need modification for Snowflake.</p>
+    <table>
+        <thead><tr><th>Category</th><th>Effort</th><th>Files Affected</th><th>Occurrences</th></tr></thead>
+        <tbody><tr><td><strong>Session & Imports</strong><br><span style="font-size:0.8rem;color:var(--gray);">.master(local) - remove, runs on Snowflake</span></td><td><span class="badge badge-yellow">Medium</span></td><td>6</td><td>10</td></tr><tr><td><strong>SparkContext / RDD Usage</strong><br><span style="font-size:0.8rem;color:var(--gray);">SparkContext not available in Snowpark Connect</span></td><td><span class="badge badge-red">Major</span></td><td>4</td><td>4</td></tr><tr><td><strong>UDF Registration</strong><br><span style="font-size:0.8rem;color:var(--gray);">UDF definition - ensure serializable for Snowpark</span></td><td><span class="badge badge-yellow">Medium</span></td><td>1</td><td>2</td></tr></tbody>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>Data Sources &amp; Targets Inventory</h2>
+    <p style="margin-bottom:1rem;color:var(--gray);font-size:0.9rem;">Actual data source paths, connection strings, and write destinations detected in the codebase.</p>
+    <p style='color:var(--gray);'>No specific data source paths or targets detected.</p>
+  </div>
+
+  <div class="section">
+    <h2>Issue Summary</h2>
+    <div class="tiles" style="grid-template-columns:repeat(3,1fr);margin-bottom:1rem;">
+      <div class="tile"><div class="label">Warnings</div><div class="value yellow">0</div></div>
+      <div class="tile"><div class="label">Conversion Issues</div><div class="value red">0</div></div>
+      <div class="tile"><div class="label">Parsing Issues</div><div class="value">0</div></div>
+    </div>
+    <table>
+      <thead><tr><th>Code</th><th>Description</th><th>Count</th><th>Category</th></tr></thead>
+      <tbody><tr><td><code>EWI-SPARK-006</code></td><td>UDF definitions - require Snowpark UDF rewrite</td><td>2</td><td><span class="badge badge-green">UDF</span></td></tr></tbody>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>Per-File Compatibility</h2>
+    <p style="margin-bottom:1rem;color:var(--gray);font-size:0.85rem;">Showing code files with their compatibility status. Click column headers to sort.</p>
+    <div style="display:flex;gap:1rem;margin-bottom:1rem;flex-wrap:wrap;">
+      <input type="text" id="file-search" placeholder="Search files..." style="flex:1;min-width:200px;padding:0.5rem;border:1px solid var(--border);border-radius:4px;font-size:0.9rem;">
+      <select id="status-filter" style="padding:0.5rem;border:1px solid var(--border);border-radius:4px;font-size:0.9rem;">
+        <option value="">All Statuses</option>
+        <option value="high">High</option>
+        <option value="medium">Medium</option>
+        <option value="low">Low</option>
+      </select>
+      <select id="tech-filter" style="padding:0.5rem;border:1px solid var(--border);border-radius:4px;font-size:0.9rem;">
+        <option value="">All Technologies</option>
+        <option value="Scala">Scala</option>
+        <option value="Python">Python</option>
+        <option value="SQL">SQL</option>
+      </select>
+      <button id="export-csv" style="padding:0.5rem 1rem;background:var(--sf-blue);color:white;border:none;border-radius:4px;cursor:pointer;font-size:0.9rem;">Export CSV</button>
+    </div>
+    <div style="max-height:500px;overflow-y:auto;">
+      <table id="file-table">
+        <thead><tr><th>File</th><th>Technology</th><th>Lines</th><th>Spark Usages</th><th>Issues</th><th>Status</th></tr></thead>
+        <tbody><tr><td title="demo_data.py">demo_data.py</td><td>Python</td><td>406</td><td>26</td><td>0</td><td><span class="badge badge-green">High</span></td></tr>
+<tr><td title="scripts/dataframe_validators.py">dataframe_validators.py</td><td>Python</td><td>407</td><td>75</td><td>0</td><td><span class="badge badge-green">High</span></td></tr>
+<tr><td title="scripts/helper_methods.py">helper_methods.py</td><td>Python</td><td>305</td><td>65</td><td>0</td><td><span class="badge badge-green">High</span></td></tr>
+<tr><td title="scripts/transaction_pipeline.py">transaction_pipeline.py</td><td>Python</td><td>221</td><td>31</td><td>0</td><td><span class="badge badge-green">High</span></td></tr>
+<tr><td title="scripts/data_transformations.py">data_transformations.py</td><td>Python</td><td>361</td><td>57</td><td>0</td><td><span class="badge badge-green">High</span></td></tr>
+<tr><td title="scripts/load_data.py">load_data.py</td><td>Python</td><td>115</td><td>12</td><td>0</td><td><span class="badge badge-green">High</span></td></tr></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE 3: MIGRATION PLAN -->
+<div id="migration-plan" class="page">
+  <div class="section">
+    <h2>Migration Strategy</h2>
+    <p style="color:var(--gray);font-size:0.9rem;margin-bottom:1rem;">This migration plan organizes 6 code files into 1 waves based on dependency topology and compatibility. Files with no internal dependencies are migrated first (foundation layer), followed by increasingly complex components. This ensures that at each stage, dependencies are already available in Snowflake.</p>
+    <div class="tiles" style="grid-template-columns:repeat(3,1fr);">
+      <div class="tile"><div class="label">Total Waves</div><div class="value">1</div></div>
+      <div class="tile"><div class="label">Files to Migrate</div><div class="value">6</div></div>
+      <div class="tile"><div class="label">Estimated Changes</div><div class="value">0</div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Dependency Overview</h2>
+    <p style="color:var(--gray);font-size:0.9rem;margin-bottom:1rem;">Files are ordered by dependency topology: leaf nodes (files with no dependencies on other project files) are migrated first, followed by files that depend on them.</p>
+    <div class="two-col">
+      <div>
+        <h3>Most Depended-Upon Files</h3>
+        <div class="file-list"><div class="file-item">No cross-file dependencies detected</div></div>
+      </div>
+      <div>
+        <h3>Most Complex Files</h3>
+        <div class="file-list"><div class="file-item"><span title="scripts/dataframe_validators.py">dataframe_validators.py</span><span class="tag">75 items</span></div>
+<div class="file-item"><span title="scripts/helper_methods.py">helper_methods.py</span><span class="tag">65 items</span></div>
+<div class="file-item"><span title="scripts/data_transformations.py">data_transformations.py</span><span class="tag">57 items</span></div>
+<div class="file-item"><span title="scripts/transaction_pipeline.py">transaction_pipeline.py</span><span class="tag">31 items</span></div>
+<div class="file-item"><span title="demo_data.py">demo_data.py</span><span class="tag">26 items</span></div>
+<div class="file-item"><span title="scripts/load_data.py">load_data.py</span><span class="tag">12 items</span></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Dependency Diagram</h2>
+    <p style="color:var(--gray);font-size:0.9rem;margin-bottom:1rem;">Visual map of file-to-file dependencies. Nodes are colored by compatibility status (green = high, orange = medium, red = low). Edges show import/dependency relationships.</p>
+    <div style="overflow-x:auto;background:#f8fafc;border-radius:6px;padding:1rem;">
+      <p style='color:var(--gray);'>No cross-file dependencies detected in this codebase.</p>
+    </div>
+    <div style="display:flex;gap:16px;margin-top:0.75rem;font-size:0.8rem;color:var(--gray);">
+      <span><span style="display:inline-block;width:12px;height:12px;background:#d4edda;border:1px solid #2ecc71;border-radius:2px;vertical-align:middle;"></span> High compatibility</span>
+      <span><span style="display:inline-block;width:12px;height:12px;background:#fff3cd;border:1px solid #f39c12;border-radius:2px;vertical-align:middle;"></span> Medium compatibility</span>
+      <span><span style="display:inline-block;width:12px;height:12px;background:#f8d7da;border:1px solid #e74c3c;border-radius:2px;vertical-align:middle;"></span> Low compatibility</span>
+    </div>
+  </div>
+
+  <div class="section">
+    
+    <h2>Wave Dependencies</h2>
+    <p style="color:var(--gray);font-size:0.9rem;margin-bottom:1rem;">Visual representation of dependencies between migration waves. Arrows indicate that a wave must be deployed after its dependency.</p>
+    <div style="overflow-x:auto;background:#f8fafc;border-radius:6px;padding:1rem;">
+      <p style='color:var(--gray);font-size:0.9rem;'>All waves are independent — no inter-wave dependencies detected. Waves can theoretically be deployed in any order (though sequential is recommended).</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Migration Waves</h2>
+    <p style="color:var(--gray);font-size:0.9rem;margin-bottom:1.5rem;">Each wave represents a group of files to migrate together. Waves are ordered so that dependencies are resolved before dependents.</p>
+    
+        <div class="wave open">
+            <div class="wave-header">
+                <h3>Wave 1: Foundation</h3>
+                <span class="wave-meta">6 files | No prior dependencies</span>
+            </div>
+            <div class="wave-body">
+                <p style="margin-bottom:1rem;color:var(--gray);font-size:0.9rem;">Root nodes — files with no internal project dependencies</p>
+                <div class="file-list"><div class="file-item"><span title="demo_data.py">demo_data.py <span class="tag">root</span></span><span>406 LOC <span class="badge badge-green">high</span></span></div>
+<div class="file-item"><span title="scripts/dataframe_validators.py">dataframe_validators.py <span class="tag">root</span></span><span>407 LOC <span class="badge badge-green">high</span></span></div>
+<div class="file-item"><span title="scripts/load_data.py">load_data.py <span class="tag">root</span></span><span>115 LOC <span class="badge badge-green">high</span></span></div>
+<div class="file-item"><span title="scripts/data_transformations.py">data_transformations.py <span class="tag">root</span></span><span>361 LOC <span class="badge badge-green">high</span></span></div>
+<div class="file-item"><span title="scripts/transaction_pipeline.py">transaction_pipeline.py <span class="tag">root</span></span><span>221 LOC <span class="badge badge-green">high</span></span></div>
+<div class="file-item"><span title="scripts/helper_methods.py">helper_methods.py <span class="tag">root</span></span><span>305 LOC <span class="badge badge-green">high</span></span></div></div>
+            </div>
+        </div>
+  </div>
+</div>
+
+<div class="generated-at">Generated by Snowflake Migration Readiness Skill | 2026-05-11 23:37:34</div>
+
+<!-- PAGE: API COMPATIBILITY -->
+<div id="api-compat" class="page">
+  <div class="section">
+            <h2>API Compatibility</h2>
+            <p style="color:var(--gray);">API compatibility data is only available when analyzing SMA reports.
+            Run this skill in SMA mode to see detailed Spark API compatibility, conversion status breakdown,
+            unsupported API inventory, and reader/writer analysis.</p>
+        </div>
+</div>
+
+<!-- PAGE 4: ADDITIONAL DISCOVERY -->
+<div id="discovery" class="page">
+  <div class="section">
+    <h2>Workload Classification</h2>
+    <div class="tiles" style="grid-template-columns:1fr 1fr 1fr;margin-bottom:1rem;">
+      <div class="tile"><div class="label">Classification</div><div class="value green" style="font-size:1.3rem;">Transform-Heavy</div></div>
+      <div class="tile"><div class="label">I/O Operations</div><div class="value">9</div></div>
+      <div class="tile"><div class="label">Transform Operations</div><div class="value">257</div></div>
+    </div>
+    <p style="color:var(--gray);font-size:0.9rem;">This workload is dominated by transformation operations (filter, join, aggregate, window functions) with relatively few I/O endpoints. It is a compute-intensive processing workload.</p>
+  </div>
+<div class="section">
+    <h2>Project Type</h2>
+    <p style="margin-bottom:1rem;"><span class="badge badge-green" style="font-size:1rem;padding:0.4rem 0.8rem;">Lift-and-Shift Candidate</span></p>
+    <p style="color:var(--gray);font-size:0.9rem;margin-bottom:0.75rem;">This codebase uses standard Spark DataFrame APIs without significant custom frameworks. It is a candidate for lift-and-shift migration using Snowpark Connect (SCOS) or direct API conversion.</p>
+    <div><strong>Indicators:</strong> <span class="tag">Standard Spark APIs</span></div>
+  </div>
+<div class="section">
+    <h2>Code Churn Estimate</h2>
+    <div class="tiles" style="grid-template-columns:1fr 1fr;margin-bottom:1rem;">
+      <div class="tile"><div class="label">Estimated Code Modification</div><div class="value green">0%</div></div>
+      <div class="tile"><div class="label">Lines Requiring Changes</div><div class="value">0</div></div>
+    </div>
+    <p style="color:var(--gray);font-size:0.9rem;">Industry benchmarks show 20-35% code modification is normal for Spark→Snowpark migrations, even with &gt;90% API coverage. This accounts for RDD elimination, MapType/JSON refactors, Delta→Iceberg conversion, and orchestration rewrites.</p>
+  </div>
+<div class="section">
+    <h2>Sources &amp; Sinks Inventory</h2>
+    <p style="color:var(--gray);font-size:0.9rem;margin-bottom:1rem;">Categorized inventory of all detected data sources and sinks. Lock and review with engineering before finalizing migration scope.</p>
+    <table>
+      <thead><tr><th>Direction</th><th>Category</th><th>Occurrences</th><th>Status</th></tr></thead>
+      <tbody><tr><td>Source</td><td>Streaming (Kafka)</td><td>0</td><td><span class="badge badge-green">Not detected</span></td></tr>
+<tr><td>Sink</td><td>JDBC Write</td><td>0</td><td><span class="badge badge-green">Not detected</span></td></tr></tbody>
+    </table>
+  </div>
+<div class="section">
+    <h2>High-Risk Format Detection</h2>
+    <p style="color:var(--gray);">No high-risk formats (XML, JSON >10 GB) detected in this codebase.</p>
+  </div>
+<div class="section">
+    <h2>Common Refactors Checklist</h2>
+    <p style="color:var(--gray);font-size:0.9rem;margin-bottom:1rem;">Auto-populated based on detected patterns. Checked items require attention in this codebase.</p>
+    <ul style="list-style:none;padding:0;"><li style="padding:0.5rem 0;border-bottom:1px solid var(--border);"><label><input type="checkbox"  disabled style="margin-right:0.5rem;"> <strong>RDD Elimination</strong></label> <span style="color:var(--gray);font-size:0.85rem;margin-left:0.5rem;">No RDD usage detected</span></li><li style="padding:0.5rem 0;border-bottom:1px solid var(--border);"><label><input type="checkbox"  disabled style="margin-right:0.5rem;"> <strong>MapType/JSON Refactors</strong></label> <span style="color:var(--gray);font-size:0.85rem;margin-left:0.5rem;">No MapType patterns detected</span></li><li style="padding:0.5rem 0;border-bottom:1px solid var(--border);"><label><input type="checkbox"  disabled style="margin-right:0.5rem;"> <strong>Delta → Iceberg Conversion</strong></label> <span style="color:var(--gray);font-size:0.85rem;margin-left:0.5rem;">No Delta Lake usage detected</span></li><li style="padding:0.5rem 0;border-bottom:1px solid var(--border);"><label><input type="checkbox"  disabled style="margin-right:0.5rem;"> <strong>Orchestration / Streaming Rewrite</strong></label> <span style="color:var(--gray);font-size:0.85rem;margin-left:0.5rem;">No streaming patterns detected</span></li><li style="padding:0.5rem 0;border-bottom:1px solid var(--border);"><label><input type="checkbox"  disabled style="margin-right:0.5rem;"> <strong>ML Pipeline Migration</strong></label> <span style="color:var(--gray);font-size:0.85rem;margin-left:0.5rem;">No ML usage detected</span></li></ul>
+  </div>
+</div>
+
+<script>
+// Tab navigation
+document.querySelectorAll('.tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById(tab.dataset.page).classList.add('active');
+  });
+});
+
+// Wave accordion
+document.querySelectorAll('.wave-header').forEach(wh => {
+  wh.addEventListener('click', () => { wh.parentElement.classList.toggle('open'); });
+});
+
+// Collapsible sections
+document.querySelectorAll('.collapsible-header').forEach(ch => {
+  ch.addEventListener('click', () => { ch.parentElement.classList.toggle('collapsed'); });
+});
+
+// Sortable table columns
+document.querySelectorAll('#file-table th').forEach((th, idx) => {
+  th.style.cursor = 'pointer';
+  th.addEventListener('click', () => {
+    const table = document.getElementById('file-table');
+    const tbody = table.querySelector('tbody');
+    const rows = Array.from(tbody.querySelectorAll('tr'));
+    const dir = th.dataset.sortDir === 'asc' ? 'desc' : 'asc';
+    th.dataset.sortDir = dir;
+    rows.sort((a, b) => {
+      let av = a.cells[idx].textContent.trim();
+      let bv = b.cells[idx].textContent.trim();
+      const an = parseFloat(av), bn = parseFloat(bv);
+      if (!isNaN(an) && !isNaN(bn)) return dir === 'asc' ? an - bn : bn - an;
+      return dir === 'asc' ? av.localeCompare(bv) : bv.localeCompare(av);
+    });
+    rows.forEach(r => tbody.appendChild(r));
+  });
+});
+
+// File table search and filter
+function filterFileTable() {
+  const search = (document.getElementById('file-search') || {}).value || '';
+  const statusFilter = (document.getElementById('status-filter') || {}).value || '';
+  const techFilter = (document.getElementById('tech-filter') || {}).value || '';
+  const table = document.getElementById('file-table');
+  if (!table) return;
+  const rows = table.querySelectorAll('tbody tr');
+  rows.forEach(row => {
+    const filename = row.cells[0].textContent.toLowerCase();
+    const tech = row.cells[1].textContent.trim();
+    const status = row.cells[5] ? row.cells[5].textContent.trim().toLowerCase() : '';
+    const matchSearch = !search || filename.includes(search.toLowerCase());
+    const matchStatus = !statusFilter || status === statusFilter;
+    const matchTech = !techFilter || tech === techFilter;
+    row.style.display = (matchSearch && matchStatus && matchTech) ? '' : 'none';
+  });
+}
+
+const searchEl = document.getElementById('file-search');
+if (searchEl) searchEl.addEventListener('input', filterFileTable);
+const statusEl = document.getElementById('status-filter');
+if (statusEl) statusEl.addEventListener('change', filterFileTable);
+const techEl = document.getElementById('tech-filter');
+if (techEl) techEl.addEventListener('change', filterFileTable);
+
+// CSV export
+const exportBtn = document.getElementById('export-csv');
+if (exportBtn) {
+  exportBtn.addEventListener('click', () => {
+    const table = document.getElementById('file-table');
+    if (!table) return;
+    const rows = table.querySelectorAll('tr');
+    let csv = '';
+    rows.forEach(row => {
+      if (row.style.display === 'none') return;
+      const cells = Array.from(row.querySelectorAll('th, td'));
+      csv += cells.map(c => '"' + c.textContent.trim().replace(/"/g, '""') + '"').join(',') + '\n';
+    });
+    const blob = new Blob([csv], {type: 'text/csv'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url; a.download = 'migration_files.csv'; a.click();
+    URL.revokeObjectURL(url);
+  });
+}
+</script>
+</body>
+</html>

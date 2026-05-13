@@ -1,0 +1,131 @@
+[
+  {
+    "name": "00_orchestrator.ipynb",
+    "origin": "ASG",
+    "status": "detected",
+    "source": "00_orchestrator.ipynb.py:436",
+    "type": "script",
+    "reason": "main_guard",
+    "inputs": {
+      "total": 3,
+      "by_type": {
+        "MEMORY": 1,
+        "SQL": 2
+      }
+    },
+    "outputs": {
+      "total": 0,
+      "by_type": {}
+    },
+    "adapted_source": "02-migrated_scos/00_orchestrator.ipynb.py:13::run"
+  },
+  {
+    "name": "01_data_ingestion_schema.ipynb",
+    "origin": "ASG",
+    "status": "detected",
+    "source": "01_data_ingestion_schema.ipynb.py:297",
+    "type": "script",
+    "reason": "main_guard",
+    "inputs": {
+      "total": 3,
+      "by_type": {
+        "MEMORY": 2,
+        "SQL": 1
+      }
+    },
+    "outputs": {
+      "total": 0,
+      "by_type": {}
+    },
+    "adapted_source": "02-migrated_scos/01_data_ingestion_schema.ipynb.py:13::run"
+  },
+  {
+    "name": "02_scd_patterns.ipynb",
+    "origin": "ASG",
+    "status": "detected",
+    "source": "02_scd_patterns.ipynb.py:397",
+    "type": "script",
+    "reason": "main_guard",
+    "inputs": {
+      "total": 3,
+      "by_type": {
+        "MEMORY": 3
+      }
+    },
+    "outputs": {
+      "total": 0,
+      "by_type": {}
+    },
+    "adapted_source": "02-migrated_scos/02_scd_patterns.ipynb.py:13::run"
+  },
+  {
+    "name": "03_aggregations_pivot_windows.ipynb",
+    "origin": "ASG",
+    "status": "detected",
+    "source": "03_aggregations_pivot_windows.ipynb.py:374",
+    "type": "script",
+    "reason": "main_guard",
+    "inputs": {
+      "total": 0,
+      "by_type": {}
+    },
+    "outputs": {
+      "total": 0,
+      "by_type": {}
+    },
+    "adapted_source": "02-migrated_scos/03_aggregations_pivot_windows.ipynb.py:13::run"
+  },
+  {
+    "name": "03_aggregations_pivot_windows_scos.ipynb",
+    "origin": "ASG",
+    "status": "detected",
+    "source": "03_aggregations_pivot_windows_scos.ipynb.py:403",
+    "type": "script",
+    "reason": "main_guard",
+    "inputs": {
+      "total": 0,
+      "by_type": {}
+    },
+    "outputs": {
+      "total": 0,
+      "by_type": {}
+    },
+    "adapted_source": "02-migrated_scos/03_aggregations_pivot_windows_scos.ipynb.py:13::run"
+  },
+  {
+    "name": "04_functional_pipeline.ipynb",
+    "origin": "ASG",
+    "status": "detected",
+    "source": "04_functional_pipeline.ipynb.py:368",
+    "type": "script",
+    "reason": "main_guard",
+    "inputs": {
+      "total": 0,
+      "by_type": {}
+    },
+    "outputs": {
+      "total": 0,
+      "by_type": {}
+    },
+    "adapted_source": "02-migrated_scos/04_functional_pipeline.ipynb.py:13::run"
+  },
+  {
+    "name": "05_date_utilities_sql_interop.ipynb",
+    "origin": "ASG",
+    "status": "detected",
+    "source": "05_date_utilities_sql_interop.ipynb.py:429",
+    "type": "script",
+    "reason": "main_guard",
+    "inputs": {
+      "total": 9,
+      "by_type": {
+        "SQL": 9
+      }
+    },
+    "outputs": {
+      "total": 0,
+      "by_type": {}
+    },
+    "adapted_source": "02-migrated_scos/05_date_utilities_sql_interop.ipynb.py:13::run"
+  }
+]

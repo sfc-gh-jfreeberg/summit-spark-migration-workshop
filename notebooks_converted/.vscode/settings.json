@@ -1,0 +1,13 @@
+{
+    "python.testing.pytestEnabled": true,
+    "python.testing.pytestArgs": [
+        "dvp/03-tests",
+        "-v",
+        "--import-mode=importlib"
+    ],
+    "python.analysis.extraPaths": [
+        "dvp/03-tests",
+        "dvp/01-source",
+        "dvp/02-migrated"
+    ]
+}
