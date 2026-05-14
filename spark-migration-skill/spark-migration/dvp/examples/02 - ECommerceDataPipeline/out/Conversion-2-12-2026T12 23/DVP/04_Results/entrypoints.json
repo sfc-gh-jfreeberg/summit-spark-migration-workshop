@@ -1,0 +1,65 @@
+[
+  {
+    "name": "create_spark_session",
+    "origin": "ASG",
+    "status": "disabled",
+    "source": "workload.py:292",
+    "type": "script",
+    "reason": "called from __main__ block in workload.py"
+  },
+  {
+    "name": "read_inputs",
+    "origin": "ASG",
+    "status": "disabled",
+    "source": "workload.py:301",
+    "type": "script",
+    "reason": "called from __main__ block in workload.py"
+  },
+  {
+    "name": "run_pipeline",
+    "origin": "ASG",
+    "status": "disabled",
+    "source": "workload.py:307",
+    "type": "script",
+    "reason": "called from __main__ block in workload.py"
+  },
+  {
+    "name": "write_outputs",
+    "origin": "ASG",
+    "status": "disabled",
+    "source": "workload.py:308",
+    "type": "script",
+    "reason": "called from __main__ block in workload.py"
+  },
+  {
+    "name": "show_outputs_using_sql",
+    "origin": "ASG",
+    "status": "disabled",
+    "source": "workload.py:310",
+    "type": "script",
+    "reason": "called from __main__ block in workload.py"
+  },
+  {
+    "name": "show_outputs",
+    "origin": "IA",
+    "status": "detected",
+    "source": "workload.py:215",
+    "type": "script"
+  },
+  {
+    "name": "read_existing_tables",
+    "origin": "IA",
+    "status": "detected",
+    "source": "workload.py:243",
+    "type": "script"
+  },
+  {
+    "name": "__main__",
+    "origin": "IA",
+    "status": "detected",
+    "source": "workload.py:291",
+    "type": "module",
+    "reason": "main_guard",
+    "adapted_source": "workload.py:291::main_entrypoint"
+  }
+]

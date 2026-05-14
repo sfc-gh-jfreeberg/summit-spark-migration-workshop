@@ -1,0 +1,3 @@
+Element,ProjectId,FileId,Count,Category,MigrationStatus,CellId,Line,Column
+DATE_FORMAT,02 - ECommerceDataPipeline,workload.py,1,Built_In,Pending,0,238,13
+FORMAT_NUMBER,02 - ECommerceDataPipeline,workload.py,1,Built_In,Pending,0,239,13

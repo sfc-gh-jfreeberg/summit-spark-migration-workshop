@@ -1,0 +1,130 @@
+{
+    "name": "02 - ECommerceDataPipeline",
+    "guid": "5e783421-d380-462c-852c-6f82d2ab6192",
+    "inputPath": "/Users/mvega/Code/migrations-ai-skills/skills/dvp/examples/02 - ECommerceDataPipeline/in",
+    "outputPath": "/Users/mvega/Code/migrations-ai-skills/skills/dvp/examples/02 - ECommerceDataPipeline/out",
+    "platform": "SnowConvertPython",
+    "accesscode": "d11364cf-a067-4b15-b4c3-ca3862086b59",
+    "isDemo": false,
+    "steps": [
+        {
+            "name": "Project Creation",
+            "status": 1,
+            "active": true,
+            "disabled": false,
+            "steps": []
+        },
+        {
+            "name": "Assessment",
+            "status": 1,
+            "active": false,
+            "disabled": true,
+            "steps": [
+                {
+                    "name": "Execution",
+                    "status": 0,
+                    "disabled": true,
+                    "active": true
+                },
+                {
+                    "name": "Results",
+                    "status": 0,
+                    "disabled": true,
+                    "active": false
+                }
+            ]
+        },
+        {
+            "name": "Conversion",
+            "status": 1,
+            "active": false,
+            "disabled": false,
+            "steps": [
+                {
+                    "name": "Conversion SetUp",
+                    "status": 1,
+                    "disabled": false,
+                    "active": false
+                },
+                {
+                    "name": "Execution",
+                    "status": 1,
+                    "disabled": false,
+                    "active": false,
+                    "expandOptions": {
+                        "isExpandable": true,
+                        "expand": true
+                    }
+                },
+                {
+                    "name": "Results",
+                    "status": 1,
+                    "disabled": false,
+                    "active": false,
+                    "expandOptions": {
+                        "isExpandable": true,
+                        "expand": true
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Post-Conversion",
+            "status": 0,
+            "active": false,
+            "disabled": true,
+            "steps": []
+        }
+    ],
+    "conversionSettings": null,
+    "internalProcessInputPath": "",
+    "internalAssessmentOutputPath": "",
+    "internalConversionOutputPath": "/Users/mvega/Code/migrations-ai-skills/skills/dvp/examples/02 - ECommerceDataPipeline/out/Conversion-2-12-2026T12 23",
+    "customerData": {
+        "company": "snowflake",
+        "email": "mau.vega@snowflake.com"
+    },
+    "conversionProgress": {
+        "isSuccessful": true
+    },
+    "customInputPaths": {
+        "assessment": "",
+        "conversion": ""
+    },
+    "sqlFlavor": "SparkSQL",
+    "isPandasEnabled": true,
+    "isJupyterConversionEnabled": true,
+    "isSmaCheckpointsEnabled": true,
+    "checkpointsAsActive": true,
+    "checkpointsCollectUDFs": true,
+    "checkpointsMode": "Schema",
+    "checkpointsSample": "100%",
+    "checkpointsRelevantCreationFunctions": [
+        "pyspark.rdd.RDD.toDF",
+        "pyspark.sql.readwriter.DataFrameReader.csv",
+        "pyspark.sql.readwriter.DataFrameReader.jdbc",
+        "pyspark.sql.readwriter.DataFrameReader.json",
+        "pyspark.sql.readwriter.DataFrameReader.load",
+        "pyspark.sql.readwriter.DataFrameReader.orc",
+        "pyspark.sql.readwriter.DataFrameReader.parquet",
+        "pyspark.sql.readwriter.DataFrameReader.table",
+        "pyspark.sql.readwriter.DataFrameReader.text",
+        "pyspark.sql.session.SparkSession.createDataFrame"
+    ],
+    "checkpointsRelevantTransformationFunctions": [
+        "pyspark.sql.dataframe.DataFrame.intersect",
+        "pyspark.sql.dataframe.DataFrame.join",
+        "pyspark.sql.dataframe.DataFrame.union",
+        "pyspark.sql.group.GroupedData.pivot"
+    ],
+    "checkpointsRelevantUserFunctions": [],
+    "lastViewState": {
+        "currentStep": {
+            "stepIndex": 0,
+            "subStepIndex": -1
+        },
+        "currentResultTab": "results",
+        "showConversionTabs": true,
+        "lastViewedAt": "2026-02-12T19:06:16.058Z"
+    }
+}

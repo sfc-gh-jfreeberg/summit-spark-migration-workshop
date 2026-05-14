@@ -1,0 +1,8 @@
+Caller,CallerType,Invoked,InvokedType,FileId,CellId,Line,Column,ExecutionId
+in.workload.write_outputs,Function,in.workload.cleanup_existing_table_directory,Function,workload.py,0,210,9,95f011c3-c806-49dd-b964-75ea94bc7929
+in.workload.show_outputs,Function,in.workload.show_parquet_file,Function,workload.py,0,219,9,95f011c3-c806-49dd-b964-75ea94bc7929
+in.workload,Module,in.workload.create_spark_session,Function,workload.py,0,292,13,95f011c3-c806-49dd-b964-75ea94bc7929
+in.workload,Module,in.workload.read_inputs,Function,workload.py,0,301,17,95f011c3-c806-49dd-b964-75ea94bc7929
+in.workload,Module,in.workload.run_pipeline,Function,workload.py,0,307,22,95f011c3-c806-49dd-b964-75ea94bc7929
+in.workload,Module,in.workload.write_outputs,Function,workload.py,0,308,9,95f011c3-c806-49dd-b964-75ea94bc7929
+in.workload,Module,in.workload.show_outputs_using_sql,Function,workload.py,0,310,9,95f011c3-c806-49dd-b964-75ea94bc7929

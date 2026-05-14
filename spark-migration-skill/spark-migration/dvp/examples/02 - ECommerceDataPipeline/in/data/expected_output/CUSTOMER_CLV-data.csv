@@ -1,0 +1,6 @@
+customer_id,customer_name,country,total_spend,net_spend
+101,Alice Smith,USA,1000.0,600.0
+102,Bob Johnson,CAN,325.5,275.0
+103,Charlie Brown,MEX,570.0,570.0
+104,Dana Scully,GER,620.0,20.0
+105,Eve Adams,USA,0.0,0.0

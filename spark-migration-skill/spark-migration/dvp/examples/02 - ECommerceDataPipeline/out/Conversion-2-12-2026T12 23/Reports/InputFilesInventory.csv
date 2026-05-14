@@ -1,0 +1,13 @@
+Element,ProjectId,FileId,Count,SessionId,Extension,Technology,Bytes,CharacterLength,LinesOfCode,ParseResult,Ignored,OriginFilePath
+02 - ECommerceDataPipeline.snowma,in,02 - ECommerceDataPipeline.snowma,1,ee0db05c-8149-4f85-81e8-1c7ccb02b502,.snowma,Other,4133,0,0,Error,True,
+customer_master.csv,in,customer_master.csv,1,ee0db05c-8149-4f85-81e8-1c7ccb02b502,.csv,Other,198,0,0,Error,True,
+exchange_rates.csv,in,exchange_rates.csv,1,ee0db05c-8149-4f85-81e8-1c7ccb02b502,.csv,Other,175,0,0,Error,True,
+expected_output\CUSTOMER_CLV-data.csv,in,expected_output\CUSTOMER_CLV-data.csv,1,ee0db05c-8149-4f85-81e8-1c7ccb02b502,.csv,Other,212,0,0,Error,True,
+expected_output\DAILY_SALES_SUMMARY-data.csv,in,expected_output\DAILY_SALES_SUMMARY-data.csv,1,ee0db05c-8149-4f85-81e8-1c7ccb02b502,.csv,Other,207,0,0,Error,True,
+expected_output\FOREIGN_TRANSACTIONS-data.csv,in,expected_output\FOREIGN_TRANSACTIONS-data.csv,1,ee0db05c-8149-4f85-81e8-1c7ccb02b502,.csv,Other,190,0,0,Error,True,
+expected_output\TOP_CATEGORIES-data.csv,in,expected_output\TOP_CATEGORIES-data.csv,1,ee0db05c-8149-4f85-81e8-1c7ccb02b502,.csv,Other,79,0,0,Error,True,
+expected_output\UNMATCHED_TRANSACTIONS-data.csv,in,expected_output\UNMATCHED_TRANSACTIONS-data.csv,1,ee0db05c-8149-4f85-81e8-1c7ccb02b502,.csv,Other,124,0,0,Error,True,
+product_catalog.csv,in,product_catalog.csv,1,ee0db05c-8149-4f85-81e8-1c7ccb02b502,.csv,Other,207,0,0,Error,True,
+raw_transactions.csv,in,raw_transactions.csv,1,ee0db05c-8149-4f85-81e8-1c7ccb02b502,.csv,Other,376,0,0,Error,True,
+returns_data.csv,in,returns_data.csv,1,ee0db05c-8149-4f85-81e8-1c7ccb02b502,.csv,Other,133,0,0,Error,True,
+workload.py,in,workload.py,1,ee0db05c-8149-4f85-81e8-1c7ccb02b502,.py,Python,13385,13381,265,Success,False,

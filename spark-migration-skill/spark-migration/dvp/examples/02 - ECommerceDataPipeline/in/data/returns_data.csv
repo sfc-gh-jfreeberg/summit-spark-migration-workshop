@@ -1,0 +1,4 @@
+return_id,transaction_id,return_date,return_amount
+R001,T002,2024-10-05,50.50
+R002,T006,2024-10-08,600.00
+R003,T009,2024-10-10,400.00

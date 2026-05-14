@@ -1,0 +1,8 @@
+Element,ProjectId,FileId,Count,IsLiteral,Format,FormatType,Mode,Supported,Line,SessionId,OptionSettings,CellId,ExecutionId
+input/raw_transactions.csv,in,workload.py,1,True,Undefined,Format,Read,False,62,ee0db05c-8149-4f85-81e8-1c7ccb02b502,,,95f011c3-c806-49dd-b964-75ea94bc7929
+input/customer_master.csv,in,workload.py,1,True,Undefined,Format,Read,False,63,ee0db05c-8149-4f85-81e8-1c7ccb02b502,,,95f011c3-c806-49dd-b964-75ea94bc7929
+input/product_catalog.csv,in,workload.py,1,True,Undefined,Format,Read,False,64,ee0db05c-8149-4f85-81e8-1c7ccb02b502,,,95f011c3-c806-49dd-b964-75ea94bc7929
+input/returns_data.csv,in,workload.py,1,True,Undefined,Format,Read,False,65,ee0db05c-8149-4f85-81e8-1c7ccb02b502,,,95f011c3-c806-49dd-b964-75ea94bc7929
+input/exchange_rates.csv,in,workload.py,1,True,Undefined,Format,Read,False,66,ee0db05c-8149-4f85-81e8-1c7ccb02b502,,,95f011c3-c806-49dd-b964-75ea94bc7929
+spark-warehouse/{table_name},in,workload.py,1,True,Parquet,Specific,Read,True,223,ee0db05c-8149-4f85-81e8-1c7ccb02b502,,,95f011c3-c806-49dd-b964-75ea94bc7929
+table_dir,in,workload.py,1,False,Parquet,Specific,Read,True,269,ee0db05c-8149-4f85-81e8-1c7ccb02b502,,,95f011c3-c806-49dd-b964-75ea94bc7929

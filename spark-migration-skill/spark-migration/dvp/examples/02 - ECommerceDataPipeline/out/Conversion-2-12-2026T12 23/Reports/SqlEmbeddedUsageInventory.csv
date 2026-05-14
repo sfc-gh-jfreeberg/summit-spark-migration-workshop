@@ -1,0 +1,6 @@
+Element,ProjectId,FileId,Count,ExecutionId,LibraryName,HasLiteral,HasVariable,HasFunction,ParsingStatus,HasInterpolation,CellId,Line,Column
+"""""""DROP TABLE IF EXISTS ${id1}""""""",in,workload.py,1,95f011c3-c806-49dd-b964-75ea94bc7929,pyspark.sql.session.SparkSession.sql,True,False,False,Success,True,,187,11
+"""""""SELECT * FROM ${id1}""""""",in,workload.py,1,95f011c3-c806-49dd-b964-75ea94bc7929,pyspark.sql.session.SparkSession.sql,True,False,False,Success,True,,234,15
+"""""""         SELECT              date_format(transaction_date, 'yyyy-MM-dd') as transaction_date,              format_number(transaction_amount_usd, 4) as transaction_amount_usd          FROM foreign_transactions""""""",in,workload.py,1,95f011c3-c806-49dd-b964-75ea94bc7929,pyspark.sql.session.SparkSession.sql,True,False,False,Success,True,,236,11
+"""""""CREATE TABLE IF NOT EXISTS ${id1} USING PARQUET LOCATION '${id2}'""""""",in,workload.py,1,95f011c3-c806-49dd-b964-75ea94bc7929,pyspark.sql.session.SparkSession.sql,True,False,False,Success,True,,277,27
+"""""""SELECT * FROM ${id1}""""""",in,workload.py,1,95f011c3-c806-49dd-b964-75ea94bc7929,pyspark.sql.session.SparkSession.sql,True,False,False,Success,True,,278,27

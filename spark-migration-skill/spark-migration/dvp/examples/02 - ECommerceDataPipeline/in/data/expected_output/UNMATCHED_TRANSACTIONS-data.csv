@@ -1,0 +1,4 @@
+transaction_id,error_message
+T009,High Value Transaction (>500)
+T006,High Value Transaction (>500)
+T007,Missing Customer ID

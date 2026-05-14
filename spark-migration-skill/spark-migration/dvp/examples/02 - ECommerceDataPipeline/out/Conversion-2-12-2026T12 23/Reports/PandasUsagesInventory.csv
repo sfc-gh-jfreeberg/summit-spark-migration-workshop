@@ -1,0 +1,2 @@
+Element,ProjectId,FileId,Count,Alias,Kind,Line,PackageName,Supported,Automated,Status,Statement,SessionId,SnowConvertCoreVersion,PandasVersion,CellId,ExecutionId,ParametersInfo,Technology
+pandas,in,workload.py,1,pd,Module,3,in.workload,True,True,Direct,import pandas as pd,ee0db05c-8149-4f85-81e8-1c7ccb02b502,8.01.026,2.01.004,,95f011c3-c806-49dd-b964-75ea94bc7929,,Python
