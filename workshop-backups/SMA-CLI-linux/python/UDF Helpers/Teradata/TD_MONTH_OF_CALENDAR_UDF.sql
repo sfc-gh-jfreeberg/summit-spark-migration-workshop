@@ -1,0 +1,20 @@
+﻿-- <copyright file="TD_MONTH_OF_CALENDAR_UDF.sql" company="Snowflake Inc">
+--        Copyright (c) 2019-2025 Snowflake Inc. All rights reserved.
+-- </copyright>
+
+-- ======================================================================
+-- RETURNS THE NUMBER OF MONTHS THAT HAVE PASSED SINCE 1900-01-01 UP TO THE INPUT DATE, EQUIVALENT TO THE TD_MONTH_OF_CALENDAR and MONTH_OF_CALENDAR FUNCTIONS IN TERADATA
+-- PARAMETERS:
+--      INPUT: TIMESTAMP_TZ. DATE TO WHICH THE NUMBER OF MONTHS SINCE 1900-01-01 WILL BE COUNTED
+-- RETURNS:
+--      AN INTEGER THAT REPRESENTS THE NUMBER OF MONTHS ELAPSED FROM 1900-01-01 TO INPUT
+-- ======================================================================
+CREATE OR REPLACE FUNCTION PUBLIC.TD_MONTH_OF_CALENDAR_UDF(INPUT TIMESTAMP_TZ)
+RETURNS INT
+LANGUAGE SQL
+IMMUTABLE
+<SnowConvertVersionComment>
+AS
+$$
+    DATEDIFF('MONTH', '1900-01-01', INPUT) + 1
+$$;

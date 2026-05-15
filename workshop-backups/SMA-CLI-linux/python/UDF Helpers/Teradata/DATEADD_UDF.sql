@@ -1,0 +1,24 @@
+﻿-- <copyright file="DATEADD_UDF.sql" company="Snowflake Inc">
+--        Copyright (c) 2019-2025 Snowflake Inc. All rights reserved.
+-- </copyright>
+
+-- =============================================
+-- DESCRIPTION: UDF THAT ALLOWS THE ADDITION OF 2 DIFFERENT DATES
+-- EQUIVALENT: TERADATA DATE + DATE
+-- PARAMETERS:
+-- FIRST_DATE: DATE
+-- SECOND_DATE: DATE
+-- RETURNS: A DATE RESULTING FROM THE ADDITION OF FIRST_DATE AND SECOND_DATE
+-- EXAMPLE:
+--  SELECT DATEADD_UDF('2022-02-14','2022-02-14');
+--  RETURNS '4044-04-28'
+-- =============================================
+CREATE OR REPLACE FUNCTION PUBLIC.DATEADD_UDF(FIRST_DATE DATE, SECOND_DATE DATE)
+RETURNS DATE
+IMMUTABLE
+<SnowConvertVersionComment>
+AS
+$$
+ DATEADD(YEAR, YEAR(SECOND_DATE), DATEADD(MONTH, MONTH(SECOND_DATE), DATEADD(DAY, DAY(SECOND_DATE), FIRST_DATE)))
+$$
+;

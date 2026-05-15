@@ -1,0 +1,2046 @@
+{
+    "Teradata": {
+        "Join Index": [
+            {
+                "Size": "XS",
+                "ManualEffort": 0
+            }
+        ],
+        "Index": [
+            {
+                "Size": "XS",
+                "ManualEffort": 15
+            },
+            {
+                "Size": "S",
+                "ManualEffort": 30
+            },
+            {
+                "Size": "M",
+                "ManualEffort": 60
+            },
+            {
+                "Size": "L",
+                "ManualEffort": 120
+            },
+            {
+                "Size": "XL",
+                "ManualEffort": 240
+            }
+        ],
+        "Schema": [
+            {
+                "Size": "XS",
+                "ManualEffort": 3
+            }
+        ],
+        "Macro": [
+            {
+                "Size": "XS",
+                "ManualEffort": 192
+            },
+            {
+                "Size": "S",
+                "ManualEffort": 384
+            },
+            {
+                "Size": "M",
+                "ManualEffort": 768
+            },
+            {
+                "Size": "L",
+                "ManualEffort": 1152
+            },
+            {
+                "Size": "XL",
+                "ManualEffort": 1536
+            }
+        ],
+        "Function": [
+            {
+                "Size": "XS",
+                "ManualEffort": 240
+            },
+            {
+                "Size": "S",
+                "ManualEffort": 480
+            },
+            {
+                "Size": "M",
+                "ManualEffort": 960
+            },
+            {
+                "Size": "L",
+                "ManualEffort": 1440
+            },
+            {
+                "Size": "XL",
+                "ManualEffort": 1920
+            }
+        ],
+        "Procedure": [
+            {
+                "Size": "XS",
+                "ManualEffort": 240
+            },
+            {
+                "Size": "S",
+                "ManualEffort": 480
+            },
+            {
+                "Size": "M",
+                "ManualEffort": 960
+            },
+            {
+                "Size": "L",
+                "ManualEffort": 1440
+            },
+            {
+                "Size": "XL",
+                "ManualEffort": 1920
+            }
+        ],
+        "BTEQ": [
+            {
+                "Size": "XS",
+                "ManualEffort": 240
+            },
+            {
+                "Size": "S",
+                "ManualEffort": 480
+            },
+            {
+                "Size": "M",
+                "ManualEffort": 960
+            },
+            {
+                "Size": "L",
+                "ManualEffort": 1920
+            },
+            {
+                "Size": "XL",
+                "ManualEffort": 1920
+            }
+        ],
+        "MLOAD": [
+            {
+                "Size": "XS",
+                "ManualEffort": 240
+            },
+            {
+                "Size": "S",
+                "ManualEffort": 480
+            },
+            {
+                "Size": "M",
+                "ManualEffort": 960
+            },
+            {
+                "Size": "L",
+                "ManualEffort": 1440
+            },
+            {
+                "Size": "XL",
+                "ManualEffort": 1920
+            }
+        ],
+        "TPT": [
+            {
+                "Size": "XS",
+                "ManualEffort": 240
+            },
+            {
+                "Size": "S",
+                "ManualEffort": 480
+            },
+            {
+                "Size": "M",
+                "ManualEffort": 960
+            },
+            {
+                "Size": "L",
+                "ManualEffort": 1440
+            },
+            {
+                "Size": "XL",
+                "ManualEffort": 1920
+            }
+        ],
+        "FLOAD": [
+            {
+                "Size": "XS",
+                "ManualEffort": 240
+            },
+            {
+                "Size": "S",
+                "ManualEffort": 480
+            },
+            {
+                "Size": "M",
+                "ManualEffort": 960
+            },
+            {
+                "Size": "L",
+                "ManualEffort": 1440
+            },
+            {
+                "Size": "XL",
+                "ManualEffort": 1920
+            }
+        ],
+        "Table": [
+            {
+                "Size": "XS",
+                "ManualEffort": 15
+            },
+            {
+                "Size": "S",
+                "ManualEffort": 30
+            },
+            {
+                "Size": "M",
+                "ManualEffort": 60
+            },
+            {
+                "Size": "L",
+                "ManualEffort": 120
+            },
+            {
+                "Size": "XL",
+                "ManualEffort": 240
+            }
+        ],
+        "View": [
+            {
+                "Size": "XS",
+                "ManualEffort": 60
+            },
+            {
+                "Size": "S",
+                "ManualEffort": 120
+            },
+            {
+                "Size": "M",
+                "ManualEffort": 240
+            },
+            {
+                "Size": "L",
+                "ManualEffort": 480
+            },
+            {
+                "Size": "XL",
+                "ManualEffort": 960
+            }
+        ],
+        "Trigger": [
+            {
+                "Size": "XS",
+                "ManualEffort": 15
+            },
+            {
+                "Size": "S",
+                "ManualEffort": 30
+            },
+            {
+                "Size": "M",
+                "ManualEffort": 60
+            },
+            {
+                "Size": "L",
+                "ManualEffort": 120
+            },
+            {
+                "Size": "XL",
+                "ManualEffort": 240
+            }
+        ],
+        "Package Body": [
+            {
+                "Size": "XS",
+                "ManualEffort": 15
+            },
+            {
+                "Size": "S",
+                "ManualEffort": 30
+            },
+            {
+                "Size": "M",
+                "ManualEffort": 60
+            },
+            {
+                "Size": "L",
+                "ManualEffort": 120
+            },
+            {
+                "Size": "XL",
+                "ManualEffort": 240
+            }
+        ]
+    },
+    "Oracle": {
+        "Package Function": [
+            {
+                "Size": "XS",
+                "ManualEffort": 240
+            },
+            {
+                "Size": "S",
+                "ManualEffort": 480
+            },
+            {
+                "Size": "M",
+                "ManualEffort": 1440
+            },
+            {
+                "Size": "L",
+                "ManualEffort": 2400
+            },
+            {
+                "Size": "XL",
+                "ManualEffort": 3600
+            }
+        ],
+        "Schema": [
+            {
+                "Size": "XS",
+                "ManualEffort": 3
+            }
+        ],
+        "Synonym": [
+            {
+                "Size": "XS",
+                "ManualEffort": 3
+            }
+        ],
+        "Package Procedure": [
+            {
+                "Size": "XS",
+                "ManualEffort": 240
+            },
+            {
+                "Size": "S",
+                "ManualEffort": 480
+            },
+            {
+                "Size": "M",
+                "ManualEffort": 1440
+            },
+            {
+                "Size": "L",
+                "ManualEffort": 2400
+            },
+            {
+                "Size": "XL",
+                "ManualEffort": 3600
+            }
+        ],
+        "Function": [
+            {
+                "Size": "XS",
+                "ManualEffort": 240
+            },
+            {
+                "Size": "S",
+                "ManualEffort": 480
+            },
+            {
+                "Size": "M",
+                "ManualEffort": 1440
+            },
+            {
+                "Size": "L",
+                "ManualEffort": 2400
+            },
+            {
+                "Size": "XL",
+                "ManualEffort": 3600
+            }
+        ],
+        "SQL Plus": [
+            {
+                "Size": "XS",
+                "ManualEffort": 240
+            },
+            {
+                "Size": "S",
+                "ManualEffort": 480
+            },
+            {
+                "Size": "M",
+                "ManualEffort": 1440
+            },
+            {
+                "Size": "L",
+                "ManualEffort": 2400
+            },
+            {
+                "Size": "XL",
+                "ManualEffort": 3600
+            }
+        ],
+        "Procedure": [
+            {
+                "Size": "XS",
+                "ManualEffort": 240
+            },
+            {
+                "Size": "S",
+                "ManualEffort": 480
+            },
+            {
+                "Size": "M",
+                "ManualEffort": 1440
+            },
+            {
+                "Size": "L",
+                "ManualEffort": 2400
+            },
+            {
+                "Size": "XL",
+                "ManualEffort": 3600
+            }
+        ],
+        "Sequence": [
+            {
+                "Size": "XS",
+                "ManualEffort": 6
+            }
+        ],
+        "Materialized View": [
+            {
+                "Size": "XS",
+                "ManualEffort": 60
+            },
+            {
+                "Size": "S",
+                "ManualEffort": 120
+            },
+            {
+                "Size": "M",
+                "ManualEffort": 240
+            },
+            {
+                "Size": "L",
+                "ManualEffort": 480
+            },
+            {
+                "Size": "XL",
+                "ManualEffort": 960
+            }
+        ],
+        "Table": [
+            {
+                "Size": "XS",
+                "ManualEffort": 15
+            },
+            {
+                "Size": "S",
+                "ManualEffort": 30
+            },
+            {
+                "Size": "M",
+                "ManualEffort": 60
+            },
+            {
+                "Size": "L",
+                "ManualEffort": 120
+            },
+            {
+                "Size": "XL",
+                "ManualEffort": 240
+            }
+        ],
+        "Trigger": [
+            {
+                "Size": "XS",
+                "ManualEffort": 60
+            },
+            {
+                "Size": "S",
+                "ManualEffort": 120
+            },
+            {
+                "Size": "M",
+                "ManualEffort": 240
+            },
+            {
+                "Size": "L",
+                "ManualEffort": 480
+            },
+            {
+                "Size": "XL",
+                "ManualEffort": 960
+            }
+        ],
+        "Type": [
+            {
+                "Size": "XS",
+                "ManualEffort": 60
+            },
+            {
+                "Size": "S",
+                "ManualEffort": 120
+            },
+            {
+                "Size": "M",
+                "ManualEffort": 240
+            },
+            {
+                "Size": "L",
+                "ManualEffort": 480
+            },
+            {
+                "Size": "XL",
+                "ManualEffort": 960
+            }
+        ],
+        "View": [
+            {
+                "Size": "XS",
+                "ManualEffort": 60
+            },
+            {
+                "Size": "S",
+                "ManualEffort": 120
+            },
+            {
+                "Size": "M",
+                "ManualEffort": 240
+            },
+            {
+                "Size": "L",
+                "ManualEffort": 480
+            },
+            {
+                "Size": "XL",
+                "ManualEffort": 960
+            }
+        ],
+        "Database Link": [
+            {
+                "Size": "XS",
+                "ManualEffort": 15
+            },
+            {
+                "Size": "S",
+                "ManualEffort": 30
+            },
+            {
+                "Size": "M",
+                "ManualEffort": 60
+            },
+            {
+                "Size": "L",
+                "ManualEffort": 120
+            },
+            {
+                "Size": "XL",
+                "ManualEffort": 240
+            }
+        ],
+        "Index": [
+            {
+                "Size": "XS",
+                "ManualEffort": 15
+            },
+            {
+                "Size": "S",
+                "ManualEffort": 30
+            },
+            {
+                "Size": "M",
+                "ManualEffort": 60
+            },
+            {
+                "Size": "L",
+                "ManualEffort": 120
+            },
+            {
+                "Size": "XL",
+                "ManualEffort": 240
+            }
+        ],
+        "Package": [
+            {
+                "Size": "XS",
+                "ManualEffort": 15
+            },
+            {
+                "Size": "S",
+                "ManualEffort": 30
+            },
+            {
+                "Size": "M",
+                "ManualEffort": 60
+            },
+            {
+                "Size": "L",
+                "ManualEffort": 120
+            },
+            {
+                "Size": "XL",
+                "ManualEffort": 240
+            }
+        ],
+        "Alter Table": [
+            {
+                "Size": "XS",
+                "ManualEffort": 15
+            },
+            {
+                "Size": "S",
+                "ManualEffort": 30
+            },
+            {
+                "Size": "M",
+                "ManualEffort": 60
+            },
+            {
+                "Size": "L",
+                "ManualEffort": 120
+            },
+            {
+                "Size": "XL",
+                "ManualEffort": 240
+            }
+        ],
+        "Package Body": [
+            {
+                "Size": "XS",
+                "ManualEffort": 15
+            },
+            {
+                "Size": "S",
+                "ManualEffort": 30
+            },
+            {
+                "Size": "M",
+                "ManualEffort": 60
+            },
+            {
+                "Size": "L",
+                "ManualEffort": 120
+            },
+            {
+                "Size": "XL",
+                "ManualEffort": 240
+            }
+        ]
+    },
+    "Transact": {
+        "Schema": [
+            {
+                "Size": "XS",
+                "ManualEffort": 3
+            }
+        ],
+        "Index": [
+            {
+                "Size": "XS",
+                "ManualEffort": 15
+            },
+            {
+                "Size": "S",
+                "ManualEffort": 30
+            },
+            {
+                "Size": "M",
+                "ManualEffort": 60
+            },
+            {
+                "Size": "L",
+                "ManualEffort": 120
+            },
+            {
+                "Size": "XL",
+                "ManualEffort": 240
+            }
+        ],
+        "Function": [
+            {
+                "Size": "XS",
+                "ManualEffort": 240
+            },
+            {
+                "Size": "S",
+                "ManualEffort": 480
+            },
+            {
+                "Size": "M",
+                "ManualEffort": 960
+            },
+            {
+                "Size": "L",
+                "ManualEffort": 1440
+            },
+            {
+                "Size": "XL",
+                "ManualEffort": 1920
+            }
+        ],
+        "Procedure": [
+            {
+                "Size": "XS",
+                "ManualEffort": 240
+            },
+            {
+                "Size": "S",
+                "ManualEffort": 480
+            },
+            {
+                "Size": "M",
+                "ManualEffort": 960
+            },
+            {
+                "Size": "L",
+                "ManualEffort": 1440
+            },
+            {
+                "Size": "XL",
+                "ManualEffort": 1920
+            }
+        ],
+        "Table": [
+            {
+                "Size": "XS",
+                "ManualEffort": 15
+            },
+            {
+                "Size": "S",
+                "ManualEffort": 30
+            },
+            {
+                "Size": "M",
+                "ManualEffort": 60
+            },
+            {
+                "Size": "L",
+                "ManualEffort": 120
+            },
+            {
+                "Size": "XL",
+                "ManualEffort": 240
+            }
+        ],
+        "Trigger": [
+            {
+                "Size": "XS",
+                "ManualEffort": 15
+            },
+            {
+                "Size": "S",
+                "ManualEffort": 30
+            },
+            {
+                "Size": "M",
+                "ManualEffort": 60
+            },
+            {
+                "Size": "L",
+                "ManualEffort": 120
+            },
+            {
+                "Size": "XL",
+                "ManualEffort": 240
+            }
+        ],
+        "SQL": [
+            {
+                "Size": "XS",
+                "ManualEffort": 240
+            },
+            {
+                "Size": "S",
+                "ManualEffort": 480
+            },
+            {
+                "Size": "M",
+                "ManualEffort": 960
+            },
+            {
+                "Size": "L",
+                "ManualEffort": 1440
+            },
+            {
+                "Size": "XL",
+                "ManualEffort": 1920
+            }
+        ],
+        "View": [
+            {
+                "Size": "XS",
+                "ManualEffort": 60
+            },
+            {
+                "Size": "S",
+                "ManualEffort": 120
+            },
+            {
+                "Size": "M",
+                "ManualEffort": 240
+            },
+            {
+                "Size": "L",
+                "ManualEffort": 480
+            },
+            {
+                "Size": "XL",
+                "ManualEffort": 960
+            }
+        ],
+        "Alter Table": [
+            {
+                "Size": "XS",
+                "ManualEffort": 15
+            },
+            {
+                "Size": "S",
+                "ManualEffort": 30
+            },
+            {
+                "Size": "M",
+                "ManualEffort": 60
+            },
+            {
+                "Size": "L",
+                "ManualEffort": 120
+            },
+            {
+                "Size": "XL",
+                "ManualEffort": 240
+            }
+        ],
+        "Materialized View": [
+            {
+                "Size": "XS",
+                "ManualEffort": 15
+            },
+            {
+                "Size": "S",
+                "ManualEffort": 30
+            },
+            {
+                "Size": "M",
+                "ManualEffort": 60
+            },
+            {
+                "Size": "L",
+                "ManualEffort": 120
+            },
+            {
+                "Size": "XL",
+                "ManualEffort": 240
+            }
+        ]
+    },
+    "Vertica": {
+        "Function": [
+            {
+                "Size": "XS",
+                "ManualEffort": 240
+            },
+            {
+                "Size": "S",
+                "ManualEffort": 480
+            },
+            {
+                "Size": "M",
+                "ManualEffort": 960
+            },
+            {
+                "Size": "L",
+                "ManualEffort": 1440
+            },
+            {
+                "Size": "XL",
+                "ManualEffort": 1920
+            }
+        ],
+        "Procedure": [
+            {
+                "Size": "XS",
+                "ManualEffort": 240
+            },
+            {
+                "Size": "S",
+                "ManualEffort": 480
+            },
+            {
+                "Size": "M",
+                "ManualEffort": 960
+            },
+            {
+                "Size": "L",
+                "ManualEffort": 1440
+            },
+            {
+                "Size": "XL",
+                "ManualEffort": 1920
+            }
+        ],
+        "Table": [
+            {
+                "Size": "XS",
+                "ManualEffort": 15
+            },
+            {
+                "Size": "S",
+                "ManualEffort": 30
+            },
+            {
+                "Size": "M",
+                "ManualEffort": 60
+            },
+            {
+                "Size": "L",
+                "ManualEffort": 120
+            },
+            {
+                "Size": "XL",
+                "ManualEffort": 240
+            }
+        ],
+        "View": [
+            {
+                "Size": "XS",
+                "ManualEffort": 60
+            },
+            {
+                "Size": "S",
+                "ManualEffort": 120
+            },
+            {
+                "Size": "M",
+                "ManualEffort": 240
+            },
+            {
+                "Size": "L",
+                "ManualEffort": 480
+            },
+            {
+                "Size": "XL",
+                "ManualEffort": 960
+            }
+        ]
+    },
+    "RedShift": {
+        "Function": [
+            {
+                "Size": "XS",
+                "ManualEffort": 240
+            },
+            {
+                "Size": "S",
+                "ManualEffort": 480
+            },
+            {
+                "Size": "M",
+                "ManualEffort": 960
+            },
+            {
+                "Size": "L",
+                "ManualEffort": 1440
+            },
+            {
+                "Size": "XL",
+                "ManualEffort": 1920
+            }
+        ],
+        "Procedure": [
+            {
+                "Size": "XS",
+                "ManualEffort": 240
+            },
+            {
+                "Size": "S",
+                "ManualEffort": 480
+            },
+            {
+                "Size": "M",
+                "ManualEffort": 960
+            },
+            {
+                "Size": "L",
+                "ManualEffort": 1440
+            },
+            {
+                "Size": "XL",
+                "ManualEffort": 1920
+            }
+        ],
+        "Table": [
+            {
+                "Size": "XS",
+                "ManualEffort": 15
+            },
+            {
+                "Size": "S",
+                "ManualEffort": 30
+            },
+            {
+                "Size": "M",
+                "ManualEffort": 60
+            },
+            {
+                "Size": "L",
+                "ManualEffort": 120
+            },
+            {
+                "Size": "XL",
+                "ManualEffort": 240
+            }
+        ],
+        "View": [
+            {
+                "Size": "XS",
+                "ManualEffort": 60
+            },
+            {
+                "Size": "S",
+                "ManualEffort": 120
+            },
+            {
+                "Size": "M",
+                "ManualEffort": 240
+            },
+            {
+                "Size": "L",
+                "ManualEffort": 480
+            },
+            {
+                "Size": "XL",
+                "ManualEffort": 960
+            }
+        ],
+        "Materialized View": [
+            {
+                "Size": "XS",
+                "ManualEffort": 15
+            },
+            {
+                "Size": "S",
+                "ManualEffort": 30
+            },
+            {
+                "Size": "M",
+                "ManualEffort": 60
+            },
+            {
+                "Size": "L",
+                "ManualEffort": 120
+            },
+            {
+                "Size": "XL",
+                "ManualEffort": 240
+            }
+        ]
+    },
+    "PostgreSQL": {
+        "Function": [
+            {
+                "Size": "XS",
+                "ManualEffort": 240
+            },
+            {
+                "Size": "S",
+                "ManualEffort": 480
+            },
+            {
+                "Size": "M",
+                "ManualEffort": 960
+            },
+            {
+                "Size": "L",
+                "ManualEffort": 1440
+            },
+            {
+                "Size": "XL",
+                "ManualEffort": 1920
+            }
+        ],
+        "Procedure": [
+            {
+                "Size": "XS",
+                "ManualEffort": 240
+            },
+            {
+                "Size": "S",
+                "ManualEffort": 480
+            },
+            {
+                "Size": "M",
+                "ManualEffort": 960
+            },
+            {
+                "Size": "L",
+                "ManualEffort": 1440
+            },
+            {
+                "Size": "XL",
+                "ManualEffort": 1920
+            }
+        ],
+        "Table": [
+            {
+                "Size": "XS",
+                "ManualEffort": 15
+            },
+            {
+                "Size": "S",
+                "ManualEffort": 30
+            },
+            {
+                "Size": "M",
+                "ManualEffort": 60
+            },
+            {
+                "Size": "L",
+                "ManualEffort": 120
+            },
+            {
+                "Size": "XL",
+                "ManualEffort": 240
+            }
+        ],
+        "View": [
+            {
+                "Size": "XS",
+                "ManualEffort": 60
+            },
+            {
+                "Size": "S",
+                "ManualEffort": 120
+            },
+            {
+                "Size": "M",
+                "ManualEffort": 240
+            },
+            {
+                "Size": "L",
+                "ManualEffort": 480
+            },
+            {
+                "Size": "XL",
+                "ManualEffort": 960
+            }
+        ],
+        "Index": [
+            {
+                "Size": "XS",
+                "ManualEffort": 15
+            },
+            {
+                "Size": "S",
+                "ManualEffort": 30
+            },
+            {
+                "Size": "M",
+                "ManualEffort": 60
+            },
+            {
+                "Size": "L",
+                "ManualEffort": 120
+            },
+            {
+                "Size": "XL",
+                "ManualEffort": 240
+            }
+        ],
+        "Materialized View": [
+            {
+                "Size": "XS",
+                "ManualEffort": 15
+            },
+            {
+                "Size": "S",
+                "ManualEffort": 30
+            },
+            {
+                "Size": "M",
+                "ManualEffort": 60
+            },
+            {
+                "Size": "L",
+                "ManualEffort": 120
+            },
+            {
+                "Size": "XL",
+                "ManualEffort": 240
+            }
+        ],
+        "Aggregate": [
+            {
+                "Size": "XS",
+                "ManualEffort": 15
+            },
+            {
+                "Size": "S",
+                "ManualEffort": 30
+            },
+            {
+                "Size": "M",
+                "ManualEffort": 60
+            },
+            {
+                "Size": "L",
+                "ManualEffort": 120
+            },
+            {
+                "Size": "XL",
+                "ManualEffort": 240
+            }
+        ],
+        "Sequence": [
+            {
+                "Size": "XS",
+                "ManualEffort": 15
+            },
+            {
+                "Size": "S",
+                "ManualEffort": 30
+            },
+            {
+                "Size": "M",
+                "ManualEffort": 60
+            },
+            {
+                "Size": "L",
+                "ManualEffort": 120
+            },
+            {
+                "Size": "XL",
+                "ManualEffort": 240
+            }
+        ],
+        "Type": [
+            {
+                "Size": "XS",
+                "ManualEffort": 60
+            },
+            {
+                "Size": "S",
+                "ManualEffort": 120
+            },
+            {
+                "Size": "M",
+                "ManualEffort": 240
+            },
+            {
+                "Size": "L",
+                "ManualEffort": 480
+            },
+            {
+                "Size": "XL",
+                "ManualEffort": 960
+            }
+        ]
+    },
+    "Hive": {
+        "AnalyzeTable": [
+            {
+                "Size": "XS",
+                "ManualEffort": 240
+            },
+            {
+                "Size": "S",
+                "ManualEffort": 480
+            },
+            {
+                "Size": "M",
+                "ManualEffort": 960
+            },
+            {
+                "Size": "L",
+                "ManualEffort": 1440
+            },
+            {
+                "Size": "XL",
+                "ManualEffort": 1920
+            }
+        ],
+        "Function": [
+            {
+                "Size": "XS",
+                "ManualEffort": 240
+            },
+            {
+                "Size": "S",
+                "ManualEffort": 480
+            },
+            {
+                "Size": "M",
+                "ManualEffort": 960
+            },
+            {
+                "Size": "L",
+                "ManualEffort": 1440
+            },
+            {
+                "Size": "XL",
+                "ManualEffort": 1920
+            }
+        ],
+        "Procedure": [
+            {
+                "Size": "XS",
+                "ManualEffort": 240
+            },
+            {
+                "Size": "S",
+                "ManualEffort": 480
+            },
+            {
+                "Size": "M",
+                "ManualEffort": 960
+            },
+            {
+                "Size": "L",
+                "ManualEffort": 1440
+            },
+            {
+                "Size": "XL",
+                "ManualEffort": 1920
+            }
+        ],
+        "Table": [
+            {
+                "Size": "XS",
+                "ManualEffort": 15
+            },
+            {
+                "Size": "S",
+                "ManualEffort": 30
+            },
+            {
+                "Size": "M",
+                "ManualEffort": 60
+            },
+            {
+                "Size": "L",
+                "ManualEffort": 120
+            },
+            {
+                "Size": "XL",
+                "ManualEffort": 240
+            }
+        ],
+        "View": [
+            {
+                "Size": "XS",
+                "ManualEffort": 60
+            },
+            {
+                "Size": "S",
+                "ManualEffort": 120
+            },
+            {
+                "Size": "M",
+                "ManualEffort": 240
+            },
+            {
+                "Size": "L",
+                "ManualEffort": 480
+            },
+            {
+                "Size": "XL",
+                "ManualEffort": 960
+            }
+        ]
+    },
+    "Greenplum": {
+        "Function": [
+            {
+                "Size": "XS",
+                "ManualEffort": 240
+            },
+            {
+                "Size": "S",
+                "ManualEffort": 480
+            },
+            {
+                "Size": "M",
+                "ManualEffort": 960
+            },
+            {
+                "Size": "L",
+                "ManualEffort": 1440
+            },
+            {
+                "Size": "XL",
+                "ManualEffort": 1920
+            }
+        ],
+        "Procedure": [
+            {
+                "Size": "XS",
+                "ManualEffort": 240
+            },
+            {
+                "Size": "S",
+                "ManualEffort": 480
+            },
+            {
+                "Size": "M",
+                "ManualEffort": 960
+            },
+            {
+                "Size": "L",
+                "ManualEffort": 1440
+            },
+            {
+                "Size": "XL",
+                "ManualEffort": 1920
+            }
+        ],
+        "Table": [
+            {
+                "Size": "XS",
+                "ManualEffort": 15
+            },
+            {
+                "Size": "S",
+                "ManualEffort": 30
+            },
+            {
+                "Size": "M",
+                "ManualEffort": 60
+            },
+            {
+                "Size": "L",
+                "ManualEffort": 120
+            },
+            {
+                "Size": "XL",
+                "ManualEffort": 240
+            }
+        ],
+        "View": [
+            {
+                "Size": "XS",
+                "ManualEffort": 60
+            },
+            {
+                "Size": "S",
+                "ManualEffort": 120
+            },
+            {
+                "Size": "M",
+                "ManualEffort": 240
+            },
+            {
+                "Size": "L",
+                "ManualEffort": 480
+            },
+            {
+                "Size": "XL",
+                "ManualEffort": 960
+            }
+        ],
+        "Index": [
+            {
+                "Size": "XS",
+                "ManualEffort": 15
+            },
+            {
+                "Size": "S",
+                "ManualEffort": 30
+            },
+            {
+                "Size": "M",
+                "ManualEffort": 60
+            },
+            {
+                "Size": "L",
+                "ManualEffort": 120
+            },
+            {
+                "Size": "XL",
+                "ManualEffort": 240
+            }
+        ],
+        "ExternalTable": [
+            {
+                "Size": "XS",
+                "ManualEffort": 15
+            },
+            {
+                "Size": "S",
+                "ManualEffort": 30
+            },
+            {
+                "Size": "M",
+                "ManualEffort": 60
+            },
+            {
+                "Size": "L",
+                "ManualEffort": 120
+            },
+            {
+                "Size": "XL",
+                "ManualEffort": 240
+            }
+        ],
+        "Sequence": [
+            {
+                "Size": "XS",
+                "ManualEffort": 15
+            },
+            {
+                "Size": "S",
+                "ManualEffort": 30
+            },
+            {
+                "Size": "M",
+                "ManualEffort": 60
+            },
+            {
+                "Size": "L",
+                "ManualEffort": 120
+            },
+            {
+                "Size": "XL",
+                "ManualEffort": 240
+            }
+        ],
+        "Materialized View": [
+            {
+                "Size": "XS",
+                "ManualEffort": 15
+            },
+            {
+                "Size": "S",
+                "ManualEffort": 30
+            },
+            {
+                "Size": "M",
+                "ManualEffort": 60
+            },
+            {
+                "Size": "L",
+                "ManualEffort": 120
+            },
+            {
+                "Size": "XL",
+                "ManualEffort": 240
+            }
+        ],
+        "Aggregate": [
+            {
+                "Size": "XS",
+                "ManualEffort": 15
+            },
+            {
+                "Size": "S",
+                "ManualEffort": 30
+            },
+            {
+                "Size": "M",
+                "ManualEffort": 60
+            },
+            {
+                "Size": "L",
+                "ManualEffort": 120
+            },
+            {
+                "Size": "XL",
+                "ManualEffort": 240
+            }
+        ],
+        "Type": [
+            {
+                "Size": "XS",
+                "ManualEffort": 60
+            },
+            {
+                "Size": "S",
+                "ManualEffort": 120
+            },
+            {
+                "Size": "M",
+                "ManualEffort": 240
+            },
+            {
+                "Size": "L",
+                "ManualEffort": 480
+            },
+            {
+                "Size": "XL",
+                "ManualEffort": 960
+            }
+        ]
+    },
+    "DB2": {
+        "Function": [
+            {
+                "Size": "XS",
+                "ManualEffort": 240
+            },
+            {
+                "Size": "S",
+                "ManualEffort": 480
+            },
+            {
+                "Size": "M",
+                "ManualEffort": 960
+            },
+            {
+                "Size": "L",
+                "ManualEffort": 1440
+            },
+            {
+                "Size": "XL",
+                "ManualEffort": 1920
+            }
+        ],
+        "Procedure": [
+            {
+                "Size": "XS",
+                "ManualEffort": 240
+            },
+            {
+                "Size": "S",
+                "ManualEffort": 480
+            },
+            {
+                "Size": "M",
+                "ManualEffort": 960
+            },
+            {
+                "Size": "L",
+                "ManualEffort": 1440
+            },
+            {
+                "Size": "XL",
+                "ManualEffort": 1920
+            }
+        ],
+        "Table": [
+            {
+                "Size": "XS",
+                "ManualEffort": 15
+            },
+            {
+                "Size": "S",
+                "ManualEffort": 30
+            },
+            {
+                "Size": "M",
+                "ManualEffort": 60
+            },
+            {
+                "Size": "L",
+                "ManualEffort": 120
+            },
+            {
+                "Size": "XL",
+                "ManualEffort": 240
+            }
+        ],
+        "View": [
+            {
+                "Size": "XS",
+                "ManualEffort": 60
+            },
+            {
+                "Size": "S",
+                "ManualEffort": 120
+            },
+            {
+                "Size": "M",
+                "ManualEffort": 240
+            },
+            {
+                "Size": "L",
+                "ManualEffort": 480
+            },
+            {
+                "Size": "XL",
+                "ManualEffort": 960
+            }
+        ],
+        "Tablespace": [
+            {
+                "Size": "XS",
+                "ManualEffort": 15
+            },
+            {
+                "Size": "S",
+                "ManualEffort": 30
+            },
+            {
+                "Size": "M",
+                "ManualEffort": 60
+            },
+            {
+                "Size": "L",
+                "ManualEffort": 120
+            },
+            {
+                "Size": "XL",
+                "ManualEffort": 240
+            }
+        ],
+        "Index": [
+            {
+                "Size": "XS",
+                "ManualEffort": 15
+            },
+            {
+                "Size": "S",
+                "ManualEffort": 30
+            },
+            {
+                "Size": "M",
+                "ManualEffort": 60
+            },
+            {
+                "Size": "L",
+                "ManualEffort": 120
+            },
+            {
+                "Size": "XL",
+                "ManualEffort": 240
+            }
+        ]
+    },
+    "BigQuery": {
+        "ExternalTable": [
+            {
+                "Size": "XS",
+                "ManualEffort": 15
+            },
+            {
+                "Size": "S",
+                "ManualEffort": 30
+            },
+            {
+                "Size": "M",
+                "ManualEffort": 60
+            },
+            {
+                "Size": "L",
+                "ManualEffort": 120
+            },
+            {
+                "Size": "XL",
+                "ManualEffort": 240
+            }
+        ],
+        "Function": [
+            {
+                "Size": "XS",
+                "ManualEffort": 240
+            },
+            {
+                "Size": "S",
+                "ManualEffort": 480
+            },
+            {
+                "Size": "M",
+                "ManualEffort": 960
+            },
+            {
+                "Size": "L",
+                "ManualEffort": 1440
+            },
+            {
+                "Size": "XL",
+                "ManualEffort": 1920
+            }
+        ],
+        "Procedure": [
+            {
+                "Size": "XS",
+                "ManualEffort": 240
+            },
+            {
+                "Size": "S",
+                "ManualEffort": 480
+            },
+            {
+                "Size": "M",
+                "ManualEffort": 960
+            },
+            {
+                "Size": "L",
+                "ManualEffort": 1440
+            },
+            {
+                "Size": "XL",
+                "ManualEffort": 1920
+            }
+        ],
+        "Table": [
+            {
+                "Size": "XS",
+                "ManualEffort": 15
+            },
+            {
+                "Size": "S",
+                "ManualEffort": 30
+            },
+            {
+                "Size": "M",
+                "ManualEffort": 60
+            },
+            {
+                "Size": "L",
+                "ManualEffort": 120
+            },
+            {
+                "Size": "XL",
+                "ManualEffort": 240
+            }
+        ],
+        "View": [
+            {
+                "Size": "XS",
+                "ManualEffort": 60
+            },
+            {
+                "Size": "S",
+                "ManualEffort": 120
+            },
+            {
+                "Size": "M",
+                "ManualEffort": 240
+            },
+            {
+                "Size": "L",
+                "ManualEffort": 480
+            },
+            {
+                "Size": "XL",
+                "ManualEffort": 960
+            }
+        ],
+        "Schema": [
+            {
+                "Size": "XS",
+                "ManualEffort": 15
+            },
+            {
+                "Size": "S",
+                "ManualEffort": 30
+            },
+            {
+                "Size": "M",
+                "ManualEffort": 60
+            },
+            {
+                "Size": "L",
+                "ManualEffort": 120
+            },
+            {
+                "Size": "XL",
+                "ManualEffort": 240
+            }
+        ],
+        "Materialized View": [
+            {
+                "Size": "XS",
+                "ManualEffort": 15
+            },
+            {
+                "Size": "S",
+                "ManualEffort": 30
+            },
+            {
+                "Size": "M",
+                "ManualEffort": 60
+            },
+            {
+                "Size": "L",
+                "ManualEffort": 120
+            },
+            {
+                "Size": "XL",
+                "ManualEffort": 240
+            }
+        ]
+    },
+    "AzureSynapse": {
+        "Schema": [
+            {
+                "Size": "XS",
+                "ManualEffort": 3
+            }
+        ],
+        "Index": [
+            {
+                "Size": "XS",
+                "ManualEffort": 15
+            },
+            {
+                "Size": "S",
+                "ManualEffort": 30
+            },
+            {
+                "Size": "M",
+                "ManualEffort": 60
+            },
+            {
+                "Size": "L",
+                "ManualEffort": 120
+            },
+            {
+                "Size": "XL",
+                "ManualEffort": 240
+            }
+        ],
+        "Function": [
+            {
+                "Size": "XS",
+                "ManualEffort": 240
+            },
+            {
+                "Size": "S",
+                "ManualEffort": 480
+            },
+            {
+                "Size": "M",
+                "ManualEffort": 960
+            },
+            {
+                "Size": "L",
+                "ManualEffort": 1440
+            },
+            {
+                "Size": "XL",
+                "ManualEffort": 1920
+            }
+        ],
+        "Procedure": [
+            {
+                "Size": "XS",
+                "ManualEffort": 240
+            },
+            {
+                "Size": "S",
+                "ManualEffort": 480
+            },
+            {
+                "Size": "M",
+                "ManualEffort": 960
+            },
+            {
+                "Size": "L",
+                "ManualEffort": 1440
+            },
+            {
+                "Size": "XL",
+                "ManualEffort": 1920
+            }
+        ],
+        "Table": [
+            {
+                "Size": "XS",
+                "ManualEffort": 15
+            },
+            {
+                "Size": "S",
+                "ManualEffort": 30
+            },
+            {
+                "Size": "M",
+                "ManualEffort": 60
+            },
+            {
+                "Size": "L",
+                "ManualEffort": 120
+            },
+            {
+                "Size": "XL",
+                "ManualEffort": 240
+            }
+        ],
+        "Trigger": [
+            {
+                "Size": "XS",
+                "ManualEffort": 15
+            },
+            {
+                "Size": "S",
+                "ManualEffort": 30
+            },
+            {
+                "Size": "M",
+                "ManualEffort": 60
+            },
+            {
+                "Size": "L",
+                "ManualEffort": 120
+            },
+            {
+                "Size": "XL",
+                "ManualEffort": 240
+            }
+        ],
+        "View": [
+            {
+                "Size": "XS",
+                "ManualEffort": 60
+            },
+            {
+                "Size": "S",
+                "ManualEffort": 120
+            },
+            {
+                "Size": "M",
+                "ManualEffort": 240
+            },
+            {
+                "Size": "L",
+                "ManualEffort": 480
+            },
+            {
+                "Size": "XL",
+                "ManualEffort": 960
+            }
+        ],
+        "Alter Table": [
+            {
+                "Size": "XS",
+                "ManualEffort": 15
+            },
+            {
+                "Size": "S",
+                "ManualEffort": 30
+            },
+            {
+                "Size": "M",
+                "ManualEffort": 60
+            },
+            {
+                "Size": "L",
+                "ManualEffort": 120
+            },
+            {
+                "Size": "XL",
+                "ManualEffort": 240
+            }
+        ],
+        "Materialized View": [
+            {
+                "Size": "XS",
+                "ManualEffort": 15
+            },
+            {
+                "Size": "S",
+                "ManualEffort": 30
+            },
+            {
+                "Size": "M",
+                "ManualEffort": 60
+            },
+            {
+                "Size": "L",
+                "ManualEffort": 120
+            },
+            {
+                "Size": "XL",
+                "ManualEffort": 240
+            }
+        ]
+    }
+}

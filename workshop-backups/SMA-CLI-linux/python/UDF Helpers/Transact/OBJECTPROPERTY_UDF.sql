@@ -1,0 +1,163 @@
+-- <copyright file="OBJECTPROPERTY_UDF.sql" company="Snowflake Inc">
+--        Copyright (c) 2019-2026 Snowflake Inc. All rights reserved.
+-- </copyright>
+
+-- =========================================================================================================
+-- Description: The OBJECTPROPERTY_UDF() function emulates the T-SQL OBJECTPROPERTY built-in function
+-- by querying Snowflake INFORMATION_SCHEMA views. It receives the object name (as returned by
+-- OBJECT_ID_UDF) and the property name, returning 1/0/NULL.
+-- =========================================================================================================
+
+CREATE OR REPLACE FUNCTION PUBLIC.OBJECTPROPERTY_UDF(OBJECT_NAME_IN VARCHAR, PROPERTY VARCHAR)
+RETURNS INT
+LANGUAGE SQL
+<SnowConvertVersionComment>
+AS
+$$
+SELECT
+    CASE UPPER(PROPERTY)
+        WHEN 'ISVIEW' THEN
+            CASE WHEN EXISTS (
+                SELECT 1 FROM INFORMATION_SCHEMA.VIEWS
+                WHERE UPPER(TABLE_SCHEMA || '.' || TABLE_NAME) = UPPER(OBJECT_NAME_IN)
+                   OR UPPER(TABLE_NAME) = UPPER(OBJECT_NAME_IN)
+                   OR UPPER(TABLE_CATALOG || '.' || TABLE_SCHEMA || '.' || TABLE_NAME) = UPPER(OBJECT_NAME_IN)
+            ) THEN 1 ELSE 0 END
+        WHEN 'ISTABLE' THEN
+            CASE WHEN EXISTS (
+                SELECT 1 FROM INFORMATION_SCHEMA.TABLES
+                WHERE TABLE_TYPE = 'BASE TABLE'
+                  AND (UPPER(TABLE_SCHEMA || '.' || TABLE_NAME) = UPPER(OBJECT_NAME_IN)
+                    OR UPPER(TABLE_NAME) = UPPER(OBJECT_NAME_IN)
+                    OR UPPER(TABLE_CATALOG || '.' || TABLE_SCHEMA || '.' || TABLE_NAME) = UPPER(OBJECT_NAME_IN))
+            ) THEN 1 ELSE 0 END
+        WHEN 'ISUSERTABLE' THEN
+            CASE WHEN EXISTS (
+                SELECT 1 FROM INFORMATION_SCHEMA.TABLES
+                WHERE TABLE_TYPE = 'BASE TABLE'
+                  AND (UPPER(TABLE_SCHEMA || '.' || TABLE_NAME) = UPPER(OBJECT_NAME_IN)
+                    OR UPPER(TABLE_NAME) = UPPER(OBJECT_NAME_IN)
+                    OR UPPER(TABLE_CATALOG || '.' || TABLE_SCHEMA || '.' || TABLE_NAME) = UPPER(OBJECT_NAME_IN))
+            ) THEN 1 ELSE 0 END
+        WHEN 'ISPROCEDURE' THEN
+            CASE WHEN EXISTS (
+                SELECT 1 FROM INFORMATION_SCHEMA.PROCEDURES
+                WHERE UPPER(PROCEDURE_SCHEMA || '.' || PROCEDURE_NAME) = UPPER(OBJECT_NAME_IN)
+                   OR UPPER(PROCEDURE_NAME) = UPPER(OBJECT_NAME_IN)
+                   OR UPPER(PROCEDURE_CATALOG || '.' || PROCEDURE_SCHEMA || '.' || PROCEDURE_NAME) = UPPER(OBJECT_NAME_IN)
+            ) THEN 1 ELSE 0 END
+        WHEN 'ISSCALARFUNCTION' THEN
+            CASE WHEN EXISTS (
+                SELECT 1 FROM INFORMATION_SCHEMA.FUNCTIONS
+                WHERE (
+                    UPPER(FUNCTION_SCHEMA || '.' || FUNCTION_NAME) = UPPER(OBJECT_NAME_IN)
+                   OR UPPER(FUNCTION_NAME) = UPPER(OBJECT_NAME_IN)
+                   OR UPPER(FUNCTION_CATALOG || '.' || FUNCTION_SCHEMA || '.' || FUNCTION_NAME) = UPPER(OBJECT_NAME_IN)
+                   )
+                AND DATA_TYPE NOT LIKE '%TABLE%'
+            ) THEN 1 ELSE 0 END
+        WHEN 'ISTABLEFUNCTION' THEN
+            CASE WHEN EXISTS (
+                SELECT 1 FROM INFORMATION_SCHEMA.FUNCTIONS
+                WHERE (
+                    UPPER(FUNCTION_SCHEMA || '.' || FUNCTION_NAME) = UPPER(OBJECT_NAME_IN)
+                    OR UPPER(FUNCTION_NAME) = UPPER(OBJECT_NAME_IN)
+                    OR UPPER(FUNCTION_CATALOG || '.' || FUNCTION_SCHEMA || '.' || FUNCTION_NAME) = UPPER(OBJECT_NAME_IN)
+                )
+                AND DATA_TYPE LIKE '%TABLE%'
+            ) THEN 1 ELSE 0 END
+        WHEN 'ISINLINEFUNCTION' THEN
+            CASE WHEN EXISTS (
+                SELECT 1 FROM INFORMATION_SCHEMA.FUNCTIONS
+                WHERE (
+                    UPPER(FUNCTION_SCHEMA || '.' || FUNCTION_NAME) = UPPER(OBJECT_NAME_IN)
+                    OR UPPER(FUNCTION_NAME) = UPPER(OBJECT_NAME_IN)
+                    OR UPPER(FUNCTION_CATALOG || '.' || FUNCTION_SCHEMA || '.' || FUNCTION_NAME) = UPPER(OBJECT_NAME_IN)
+                    )
+                AND DATA_TYPE NOt LIKE '%TABLE%'
+                AND IS_EXTERNAL = 'NO'
+            ) THEN 1 ELSE 0 END
+        WHEN 'ISPRIMARYKEY' THEN
+            CASE WHEN EXISTS (
+                SELECT 1 FROM INFORMATION_SCHEMA.TABLE_CONSTRAINTS
+                WHERE CONSTRAINT_TYPE = 'PRIMARY KEY'
+                  AND (UPPER(CONSTRAINT_SCHEMA || '.' || CONSTRAINT_NAME) = UPPER(OBJECT_NAME_IN)
+                    OR UPPER(CONSTRAINT_NAME) = UPPER(OBJECT_NAME_IN)
+                    OR UPPER(CONSTRAINT_CATALOG || '.' || CONSTRAINT_SCHEMA || '.' || CONSTRAINT_NAME) = UPPER(OBJECT_NAME_IN))
+            ) THEN 1 ELSE 0 END
+        WHEN 'ISFOREIGNKEY' THEN
+            CASE WHEN EXISTS (
+                SELECT 1 FROM INFORMATION_SCHEMA.TABLE_CONSTRAINTS
+                WHERE CONSTRAINT_TYPE = 'FOREIGN KEY'
+                  AND (UPPER(CONSTRAINT_SCHEMA || '.' || CONSTRAINT_NAME) = UPPER(OBJECT_NAME_IN)
+                    OR UPPER(CONSTRAINT_NAME) = UPPER(OBJECT_NAME_IN)
+                    OR UPPER(CONSTRAINT_CATALOG || '.' || CONSTRAINT_SCHEMA || '.' || CONSTRAINT_NAME) = UPPER(OBJECT_NAME_IN))
+            ) THEN 1 ELSE 0 END
+        WHEN 'ISUNIQUECNST' THEN
+            CASE WHEN EXISTS (
+                SELECT 1 FROM INFORMATION_SCHEMA.TABLE_CONSTRAINTS
+                WHERE CONSTRAINT_TYPE = 'UNIQUE'
+                  AND (UPPER(CONSTRAINT_SCHEMA || '.' || CONSTRAINT_NAME) = UPPER(OBJECT_NAME_IN)
+                    OR UPPER(CONSTRAINT_NAME) = UPPER(OBJECT_NAME_IN)
+                    OR UPPER(CONSTRAINT_CATALOG || '.' || CONSTRAINT_SCHEMA || '.' || CONSTRAINT_NAME) = UPPER(OBJECT_NAME_IN))
+            ) THEN 1 ELSE 0 END
+        WHEN 'ISCONSTRAINT' THEN
+            CASE WHEN EXISTS (
+                SELECT 1 FROM INFORMATION_SCHEMA.TABLE_CONSTRAINTS
+                WHERE (UPPER(CONSTRAINT_SCHEMA || '.' || CONSTRAINT_NAME) = UPPER(OBJECT_NAME_IN)
+                    OR UPPER(CONSTRAINT_NAME) = UPPER(OBJECT_NAME_IN)
+                    OR UPPER(CONSTRAINT_CATALOG || '.' || CONSTRAINT_SCHEMA || '.' || CONSTRAINT_NAME) = UPPER(OBJECT_NAME_IN))
+            ) THEN 1 ELSE 0 END
+        WHEN 'TABLEHASPRIMARYKEY' THEN
+            CASE WHEN EXISTS (
+                SELECT 1 FROM INFORMATION_SCHEMA.TABLE_CONSTRAINTS
+                WHERE CONSTRAINT_TYPE = 'PRIMARY KEY'
+                  AND (UPPER(TABLE_SCHEMA || '.' || TABLE_NAME) = UPPER(OBJECT_NAME_IN)
+                    OR UPPER(TABLE_NAME) = UPPER(OBJECT_NAME_IN)
+                    OR UPPER(CONSTRAINT_CATALOG || '.' || TABLE_SCHEMA || '.' || TABLE_NAME) = UPPER(OBJECT_NAME_IN))
+            ) THEN 1 ELSE 0 END
+        WHEN 'TABLEHASFOREIGNKEY' THEN
+            CASE WHEN EXISTS (
+                SELECT 1 FROM INFORMATION_SCHEMA.TABLE_CONSTRAINTS
+                WHERE CONSTRAINT_TYPE = 'FOREIGN KEY'
+                  AND (UPPER(TABLE_SCHEMA || '.' || TABLE_NAME) = UPPER(OBJECT_NAME_IN)
+                    OR UPPER(TABLE_NAME) = UPPER(OBJECT_NAME_IN)
+                    OR UPPER(CONSTRAINT_CATALOG || '.' || TABLE_SCHEMA || '.' || TABLE_NAME) = UPPER(OBJECT_NAME_IN))
+            ) THEN 1 ELSE 0 END
+        WHEN 'TABLEHASUNIQUECNST' THEN
+            CASE WHEN EXISTS (
+                SELECT 1 FROM INFORMATION_SCHEMA.TABLE_CONSTRAINTS
+                WHERE CONSTRAINT_TYPE = 'UNIQUE'
+                  AND (UPPER(TABLE_SCHEMA || '.' || TABLE_NAME) = UPPER(OBJECT_NAME_IN)
+                    OR UPPER(TABLE_NAME) = UPPER(OBJECT_NAME_IN)
+                    OR UPPER(CONSTRAINT_CATALOG || '.' || TABLE_SCHEMA || '.' || TABLE_NAME) = UPPER(OBJECT_NAME_IN))
+            ) THEN 1 ELSE 0 END
+        WHEN 'TABLEHASFOREIGNREF' THEN
+            CASE WHEN EXISTS (
+                SELECT 1 FROM INFORMATION_SCHEMA.REFERENTIAL_CONSTRAINTS RC
+                JOIN INFORMATION_SCHEMA.TABLE_CONSTRAINTS TC
+                  ON RC.UNIQUE_CONSTRAINT_NAME = TC.CONSTRAINT_NAME
+                WHERE (UPPER(TC.TABLE_SCHEMA || '.' || TC.TABLE_NAME) = UPPER(OBJECT_NAME_IN)
+                    OR UPPER(TC.TABLE_NAME) = UPPER(OBJECT_NAME_IN)
+                    OR UPPER(TC.CONSTRAINT_CATALOG || '.' || TC.TABLE_SCHEMA || '.' || TC.TABLE_NAME) = UPPER(OBJECT_NAME_IN))
+            ) THEN 1 ELSE 0 END
+        WHEN 'TABLEHASIDENTITY' THEN
+            CASE WHEN EXISTS (
+                SELECT 1 FROM INFORMATION_SCHEMA.COLUMNS
+                WHERE IS_IDENTITY = 'YES'
+                  AND (UPPER(TABLE_SCHEMA || '.' || TABLE_NAME) = UPPER(OBJECT_NAME_IN)
+                    OR UPPER(TABLE_NAME) = UPPER(OBJECT_NAME_IN)
+                    OR UPPER(TABLE_CATALOG || '.' || TABLE_SCHEMA || '.' || TABLE_NAME) = UPPER(OBJECT_NAME_IN))
+            ) THEN 1 ELSE 0 END
+        WHEN 'TABLEHASDEFAULTCNST' THEN
+            CASE WHEN EXISTS (
+                SELECT 1 FROM INFORMATION_SCHEMA.COLUMNS
+                WHERE COLUMN_DEFAULT IS NOT NULL
+                  AND (UPPER(TABLE_SCHEMA || '.' || TABLE_NAME) = UPPER(OBJECT_NAME_IN)
+                    OR UPPER(TABLE_NAME) = UPPER(OBJECT_NAME_IN)
+                    OR UPPER(TABLE_CATALOG || '.' || TABLE_SCHEMA || '.' || TABLE_NAME) = UPPER(OBJECT_NAME_IN))
+            ) THEN 1 ELSE 0 END
+        ELSE
+            NULL
+    END
+$$;

@@ -1,0 +1,28 @@
+-- <copyright file="SAFE_OFFSET_UDF.sql" company="Snowflake Inc">
+--        Copyright (c) 2019-2025 Snowflake Inc. All rights reserved.
+-- </copyright>
+
+-- ====================================================================
+-- DESCRIPTION: RETRIEVES THE NTH ELEMENT FROM AN ARRAY, RETURNING NULL FOR OUT OF BOUNDS VALUES.
+-- EQUIVALENT: SAFE_OFFSET OPERATOR FROM BIGQUERY.
+-- PARAMETERS:
+--  ARRAYVALUE ARRAY - THE ARRAY OBJECT TO EXTRACT THE NTH ELEMENT FROM.
+--  INDEXVALUE INTEGER - THE INDEX OF THE ELEMENT TO EXTRACT (0 BASED).
+-- RETURNS: THE ELEMENT AT THE SPECIFIED INDEX OR NULL IF THE VALUE IS OUT OF BOUNDS.
+-- EXAMPLE:
+--  INPUT:
+--      SELECT PUBLIC.SAFE_OFFSET_UDF([1, 2, 3], 1);
+--      SELECT PUBLIC.SAFE_OFFSET_UDF([1, 2, 3], -3);
+--      SELECT PUBLIC.SAFE_OFFSET_UDF([1, 2, 3], 12);
+--  RESULT:
+--      2
+--      NULL
+--      NULL
+-- ====================================================================
+CREATE OR REPLACE FUNCTION PUBLIC.SAFE_OFFSET_UDF(ARRAYVALUE ARRAY, INDEXVALUE INTEGER)
+RETURNS VARIANT
+<SnowConvertVersionComment>
+AS
+$$
+    IFF(INDEXVALUE < 0, NULL, ARRAYVALUE[ABS(INDEXVALUE)])
+$$;

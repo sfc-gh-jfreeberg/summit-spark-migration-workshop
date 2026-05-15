@@ -1,0 +1,17 @@
+[
+  {
+    "title": "Custom Map Directory",
+    "kind": "text",
+    "helpText": "The path to the custom map folder where the custom mapping files are stored.",
+    "cliLongName": "mapDirectory",
+    "cliShortName": "m",
+    "engineName": "CustomMapDirectory",
+    "group": null,
+    "textKind": "directory",
+    "optional": true,
+    "defaultValue": null,
+    "regex": null,
+    "isOnlyCLI": false,
+    "isCustom": false
+  }
+]

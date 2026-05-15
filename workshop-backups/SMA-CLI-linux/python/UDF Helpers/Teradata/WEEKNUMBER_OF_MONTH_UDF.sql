@@ -1,0 +1,25 @@
+-- <copyright file="WEEKNUMBER_OF_MONTH_UDF.sql" company="Snowflake Inc">
+--        Copyright (c) 2019-2025 Snowflake Inc. All rights reserved.
+-- </copyright>
+
+-- ======================================================================
+-- RETURNS WHICH MONTH OF THE YEAR A DATE BELONGS TO 
+-- EQUIVALENT TO THE WEEKNUMBER_OF_MONTH
+-- PARAMETERS:
+--     INPUT: TIMESTAMP_TZ. DATE TO GET THE NUMBER OF MONTH FROM
+-- RETURNS:
+--     A NUMBER THAT REPRESENTS THE MONTH NUMBER THE DATE BELONGS TO
+-- EQUIVALENT:
+--     TERADATA'S WEEKNUMBER_OF_MONTH FUNCTIONALITY
+-- EXAMPLE:
+--     SELECT PUBLIC.WEEKNUMBER_OF_MONTH_UDF(DATE '2022-05-21')
+--     RETURNS 3
+-- ======================================================================
+CREATE OR REPLACE FUNCTION PUBLIC.WEEKNUMBER_OF_MONTH_UDF(INPUT TIMESTAMP_TZ)
+RETURNS NUMBER
+IMMUTABLE
+<SnowConvertVersionComment>
+AS
+$$
+    EXTRACT(WEEK FROM INPUT) - EXTRACT(WEEK FROM DATE_TRUNC(MONTH, INPUT))
+$$;

@@ -1,0 +1,7 @@
+﻿Package org.apache.spark.core => com.snowflake.snowpark;
+Package org.apache.spark.sql.expressions => com.snowflake.snowpark;
+Package org.apache.spark.sql.types.StructField => com.snowflake.snowpark.types.StructField;
+Package org.apache.spark.sql.SparkSession => com.snowflake.snowpark.Session;
+Package org.apache.spark.sql.Dataset => com.snowflake.snowpark.DataFrame;
+Package org.apache.spark.sql => com.snowflake.snowpark;
+Package org.apache.spark => com.snowflake.snowpark;
